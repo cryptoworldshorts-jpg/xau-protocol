@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XAU Protocol | Professional Trading Systems</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            background-color: #030406; 
+            color: #f3f4f6; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            scroll-behavior: smooth; 
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: translateY(-5px);
+        }
+        .hero-glow {
+            position: absolute;
+            top: 0; left: 50%; transform: translateX(-50%);
+            width: 600px; height: 300px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
 
+    <div class="hero-glow"></div>
+
+    <nav class="max-w-6xl mx-auto p-6 flex justify-between items-center">
+        <div class="text-xl font-extrabold tracking-tighter">
+            <span class="text-white">XAU</span><span class="text-yellow-500 underline decoration-2 underline-offset-4">PROTOCOL</span>
+        </div>
+        <div class="flex items-center space-x-6 text-xs font-bold uppercase tracking-widest">
+            <a href="#systems" class="hover:text-yellow-500 transition">Systems</a>
+            <a href="#about" class="hover:text-yellow-500 transition">Experience</a>
+            <a href="/hr" class="border border-white/20 px-3 py-1 rounded hover:bg-white/10 transition">HR/BA</a>
+        </div>
+    </nav>
+
+    <header class="max-w-4xl mx-auto text-center py-20 px-6">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+            Precision Trading <br> <span class="gold-gradient italic">Without the Noise</span>
+        </h1>
+        <p class="text-lg text-gray-400 mb-10 max-w-xl mx-auto">
+            Specialized indicators for Gold, Bitcoin, and Forex. Designed by traders, refined by 11 years of market data.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+            <a href="#systems" class="bg-yellow-500 text-black px-10 py-4 rounded-full font-bold hover:shadow-[0_0_20px_rgba(255,215,0,0.4)] transition">View Indicators</a>
+            <a href="#results" class="bg-white/5 border border-white/10 text-white px-10 py-4 rounded-full font-bold hover:bg-white/10 transition">See Results</a>
+        </div>
+    </header>
+
+    <section id="systems" class="max-w-6xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="glass-card p-8 rounded-3xl relative overflow-hidden">
+                <div class="mb-4 text-xs font-bold text-yellow-500 uppercase tracking-widest">Metals</div>
+                <h2 class="text-3xl font-extrabold mb-4 italic">XAU 1:3</h2>
+                <p class="text-gray-400 mb-8 text-sm leading-relaxed">Optimization for Gold 15m timeframe. Features a unique 8-bar range filter to keep you safe from choppy markets.</p>
+                <div class="text-3xl font-black mb-6">$50 <span class="text-xs text-gray-500 uppercase font-normal">Monthly</span></div>
+                <button class="w-full py-4 rounded-xl bg-yellow-500 text-black font-extrabold hover:bg-yellow-400 transition shadow-lg">Get Access</button>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl border-orange-500/10">
+                <div class="mb-4 text-xs font-bold text-orange-500 uppercase tracking-widest">Crypto</div>
+                <h2 class="text-3xl font-extrabold mb-4 italic">BTC Snipe</h2>
+                <p class="text-gray-400 mb-8 text-sm leading-relaxed">Momentum-based algorithm for Bitcoin. Capturing high-volatility moves with clear Risk/Reward targets.</p>
+                <div class="text-3xl font-black mb-6">$50 <span class="text-xs text-gray-500 uppercase font-normal">Monthly</span></div>
+                <button class="w-full py-4 rounded-xl bg-orange-500 text-white font-extrabold hover:bg-orange-600 transition shadow-lg">Get Access</button>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl border-blue-500/10">
+                <div class="mb-4 text-xs font-bold text-blue-500 uppercase tracking-widest">Forex</div>
+                <h2 class="text-3xl font-extrabold mb-4 italic">EU Flow</h2>
+                <p class="text-gray-400 mb-8 text-sm leading-relaxed">Low spread, high precision sniper entries for EUR/USD. Optimized for intraday sessions.</p>
+                <div class="text-3xl font-black mb-6">$50 <span class="text-xs text-gray-500 uppercase font-normal">Monthly</span></div>
+                <button class="w-full py-4 rounded-xl bg-blue-600 text-white font-extrabold hover:bg-blue-700 transition shadow-lg">Get Access</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5 bg-white/[0.01]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-extrabold mb-6 italic">Trading Since 2015.</h2>
+                <p class="text-gray-400 text-lg mb-6 leading-relaxed italic">"I've spent 11 years looking at charts so you don't have to guess."</p>
+                <p class="text-gray-400 mb-8 leading-relaxed">
+                    Most trading systems fail because they try to trade every market move. XAU Protocol is different. It is built on the same math I used to pass funding evaluations. We wait for the setup, we manage the risk, we hit the target.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                        <div class="text-2xl font-bold text-yellow-500">11+ Years</div>
+                        <div class="text-[10px] uppercase text-gray-500 tracking-widest">Market Experience</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
+                        <div class="text-2xl font-bold text-yellow-500">1:3 RR</div>
+                        <div class="text-[10px] uppercase text-gray-500 tracking-widest">Minimum Target</div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-4 bg-yellow-500/10 blur-3xl rounded-full"></div>
+                <div class="glass-card p-6 rounded-3xl border-white/10 relative">
+                    <div class="w-full h-64 bg-gray-900 rounded-2xl flex items-center justify-center text-gray-600 italic">
+                        [ Screenshot of FTMO Pass / Best Trade ]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="p-10 text-center border-t border-white/5">
+        <p class="text-xs text-gray-600 uppercase tracking-widest">XAU Protocol © 2026 | Built for disciplined traders.</p>
+    </footer>
+
+</body>
+</html>

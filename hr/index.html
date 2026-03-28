@@ -2,7 +2,7 @@
 <html lang="hr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>XAU Protocol | Profesionalni Sistemi za Trgovanje Zlatom</title>
     <meta name="description" content="Profesionalni XAUUSD protokol za trgovanje zlatom. Visoka preciznost na 15m grafikonu sa Entry, SL i TP nivoima. Trgujte na osnovu matematike.">
@@ -25,6 +25,10 @@
             color: #f3f4f6; 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             scroll-behavior: smooth; 
+            /* FIX ZA BJEŽANJE EKRANA */
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
         .gold-gradient {
             background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
@@ -44,9 +48,10 @@
         .hero-glow {
             position: absolute;
             top: 0; left: 50%; transform: translateX(-50%);
-            width: 600px; height: 300px;
+            width: 100vw; height: 300px;
             background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
             z-index: -1;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -54,38 +59,38 @@
 
     <div class="hero-glow"></div>
 
-<nav class="max-w-6xl mx-auto p-4 md:p-6 flex justify-between items-center relative z-50">
-    <a href="/hr" class="group flex items-center gap-2 md:gap-3 flex-shrink-0">
-        <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300 group-hover:border-yellow-500/50 group-hover:bg-yellow-500/5 group-hover:shadow-[0_0_20px_rgba(255,215,0,0.15)]">
-            <span class="text-2xl font-black italic uppercase tracking-tighter leading-none flex">
-                <span class="text-white">X</span><span class="text-yellow-500">P</span>
-            </span>
-        </div>
-        <div class="hidden md:flex flex-col leading-none">
-            <span class="text-white font-black italic uppercase text-sm tracking-tighter group-hover:text-yellow-500 transition-colors">XAU</span>
-            <span class="text-[10px] font-bold uppercase text-gray-500 tracking-[0.3em]">Protocol</span>
-        </div>
-    </a>
+    <nav class="max-w-6xl mx-auto p-4 md:p-6 flex justify-between items-center relative z-50">
+        <a href="./" class="group flex items-center gap-2 md:gap-3 flex-shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300 group-hover:border-yellow-500/50">
+                <span class="text-2xl font-black italic uppercase tracking-tighter leading-none flex">
+                    <span class="text-white">X</span><span class="text-yellow-500">P</span>
+                </span>
+            </div>
+            <div class="hidden md:flex flex-col leading-none">
+                <span class="text-white font-black italic uppercase text-sm tracking-tighter group-hover:text-yellow-500 transition-colors">XAU</span>
+                <span class="text-[10px] font-bold uppercase text-gray-500 tracking-[0.3em]">Protocol</span>
+            </div>
+        </a>
 
-    <div class="flex items-center space-x-3 md:space-x-8 text-[10px] md:text-xs font-bold uppercase tracking-widest flex-shrink-0">
-        <a href="#systems" class="text-white/80 hover:text-yellow-500 transition-colors italic">Sistemi</a>
-        <a href="#about" class="text-white/80 hover:text-yellow-500 transition-colors italic">O Nama</a>
-        <a href="../" class="border border-yellow-500/30 text-yellow-500 px-2 md:px-3 py-1 rounded hover:bg-yellow-500/10 transition-all italic">EN</a>
-    </div>
-</nav>
+        <div class="flex items-center space-x-3 md:space-x-8 text-[10px] md:text-xs font-bold uppercase tracking-widest flex-shrink-0">
+            <a href="#systems" class="text-white/80 hover:text-yellow-500 transition-colors italic">Sistemi</a>
+            <a href="#about" class="text-white/80 hover:text-yellow-500 transition-colors italic">O Nama</a>
+            <a href="../" class="border border-yellow-500/30 text-yellow-500 px-2 md:px-3 py-1 rounded hover:bg-yellow-500/10 transition-all italic uppercase">EN</a>
+        </div>
+    </nav>
 
-    <header class="max-w-4xl mx-auto text-center py-20 px-6">
-        <h1 class="flex flex-col items-center text-center text-[9vw] md:text-6xl lg:text-[85px] font-black mb-8 italic uppercase tracking-tighter leading-[0.9] md:leading-[0.8] drop-shadow-2xl w-full px-6 overflow-visible" style="word-spacing: 0.1em;">
-    <span class="block md:whitespace-nowrap px-4">Trgujte zlatom uz</span>
-    <span class="text-yellow-500 block md:whitespace-nowrap px-4">Matematičku prednost.</span>
-</h1>
-        <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+    <header class="max-w-4xl mx-auto text-center py-16 md:py-24 px-6">
+        <h1 class="flex flex-col items-center text-center text-[10vw] md:text-6xl lg:text-[85px] font-black mb-8 italic uppercase tracking-tighter leading-[0.9] md:leading-[0.8] drop-shadow-2xl overflow-visible">
+            <span class="block md:whitespace-nowrap px-2 text-white">Trgujte zlatom uz</span>
+            <span class="text-yellow-500 block md:whitespace-nowrap px-2">Matematičku prednost.</span>
+        </h1>
+        <p class="text-base md:text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
             Prestanite previše razmišljati. Visokoprecizni 15M sistem sa automatskim Entry, SL i TP nivoima. 
-            <span class="text-white font-bold italic">Jedan uspješan signal može pokriti vašu cijelu mjesečnu pretplatu.</span>
+            <span class="text-white font-bold italic block mt-2">Jedan uspješan signal može pokriti vašu cijelu mjesečnu pretplatu.</span>
         </p>
-        <div class="flex flex-col md:flex-row justify-center gap-4">
-            <a href="#systems" class="bg-yellow-500 text-black px-12 py-5 rounded-full font-black hover:shadow-[0_0_30px_rgba(255,215,0,0.4)] transition transform hover:-translate-y-1 uppercase tracking-widest">Preuzmi Pristup</a>
-            <a href="#about" class="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full font-bold hover:bg-white/10 transition italic uppercase text-xs tracking-widest">Saznaj Više</a>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#systems" class="bg-yellow-500 text-black px-10 py-4 md:px-12 md:py-5 rounded-full font-black hover:shadow-[0_0_30px_rgba(255,215,0,0.4)] transition transform hover:-translate-y-1 uppercase tracking-widest text-sm text-center">Preuzmi Pristup</a>
+            <a href="#about" class="bg-white/5 border border-white/10 text-white px-8 py-4 md:px-10 md:py-5 rounded-full font-bold hover:bg-white/10 transition italic uppercase text-[10px] tracking-widest text-center">Saznaj Više</a>
         </div>
     </header>
 
@@ -114,7 +119,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <button class="py-4 rounded-xl bg-yellow-500 text-black font-black hover:bg-yellow-400 transition shadow-lg uppercase text-sm tracking-widest text-shadow-sm">Kupi Mjesečno</button>
+                    <button class="py-4 rounded-xl bg-yellow-500 text-black font-black hover:bg-yellow-400 transition shadow-lg uppercase text-sm tracking-widest">Kupi Mjesečno</button>
                     <button class="py-4 rounded-xl bg-transparent border-2 border-yellow-500 text-yellow-500 font-black hover:bg-yellow-500/10 transition uppercase text-sm tracking-widest">Kupi Godišnje</button>
                 </div>
             </div>
@@ -122,13 +127,13 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div class="glass-card p-8 rounded-3xl opacity-40 border-white/5 border grayscale">
-                <div class="mb-4 text-xs font-bold text-gray-500 uppercase tracking-widest font-bold text-shadow-sm">U Razvoju</div>
+                <div class="mb-4 text-xs font-bold text-gray-500 uppercase tracking-widest">U Razvoju</div>
                 <h2 class="text-2xl font-black mb-4 italic text-gray-400 uppercase">BTC Snipe</h2>
                 <p class="text-gray-500 mb-8 text-sm leading-relaxed italic">Algoritam baziran na momentumu za Bitcoin. Trenutno u fazi finalnog testiranja.</p>
                 <button disabled class="w-full py-3 rounded-xl bg-gray-900 text-gray-600 font-black cursor-not-allowed uppercase text-xs tracking-widest border border-white/5">Dolazi Uskoro</button>
             </div>
             <div class="glass-card p-8 rounded-3xl opacity-40 border-white/5 border grayscale">
-                <div class="mb-4 text-xs font-bold text-gray-500 uppercase tracking-widest font-bold text-shadow-sm">U Razvoju</div>
+                <div class="mb-4 text-xs font-bold text-gray-500 uppercase tracking-widest">U Razvoju</div>
                 <h2 class="text-2xl font-black mb-4 italic text-gray-400 uppercase">EU Flow</h2>
                 <p class="text-gray-500 mb-8 text-sm leading-relaxed italic">Precizni ulazi za EUR/USD. Optimizovano za London i NY sesije.</p>
                 <button disabled class="w-full py-3 rounded-xl bg-gray-900 text-gray-600 font-black cursor-not-allowed uppercase text-xs tracking-widest border border-white/5">Dolazi Uskoro</button>
@@ -136,60 +141,57 @@
         </div>
 
         <div class="mt-16 max-w-4xl mx-auto border border-yellow-500/10 bg-gradient-to-b from-yellow-500/[0.03] to-transparent p-1 shadow-2xl rounded-[2rem]">
-    <div class="bg-[#030406] rounded-[1.9rem] p-8 md:p-12">
-        <div class="text-center mb-10">
-            <h4 class="text-white font-black mb-3 uppercase italic tracking-tighter text-2xl">Proces Aktivacije</h4>
-            <p class="text-gray-500 text-sm italic">Slijedite ove korake nakon što odaberete svoj plan iznad.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            <div class="hidden md:block absolute top-10 left-20 right-20 h-px bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent"></div>
-
-            <div class="relative z-10 flex flex-col items-center">
-                <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 group-hover:border-yellow-500/50 transition shadow-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+            <div class="bg-[#030406] rounded-[1.9rem] p-8 md:p-12">
+                <div class="text-center mb-10">
+                    <h4 class="text-white font-black mb-3 uppercase italic tracking-tighter text-2xl">Proces Aktivacije</h4>
+                    <p class="text-gray-500 text-sm italic">Slijedite ove korake nakon što odaberete svoj plan iznad.</p>
                 </div>
-                <h5 class="text-white font-bold mb-2 uppercase text-xs tracking-widest italic">1. Plaćanje</h5>
-                <p class="text-[11px] text-gray-500 leading-relaxed px-4">Izvršite uplatu putem Kripto valuta ili Kartice.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                    <div class="hidden md:block absolute top-10 left-20 right-20 h-px bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent"></div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 transition shadow-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                        </div>
+                        <h5 class="text-white font-bold mb-2 uppercase text-xs tracking-widest italic">1. Plaćanje</h5>
+                        <p class="text-[11px] text-gray-500 leading-relaxed px-4 text-center">Izvršite uplatu putem Kripto valuta ili Kartice.</p>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 shadow-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        </div>
+                        <h5 class="text-white font-bold mb-2 uppercase text-xs tracking-widest italic">2. Podaci</h5>
+                        <p class="text-[11px] text-gray-500 leading-relaxed px-4 text-center">Spremite vaš TV Username i TXID transakcije.</p>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-yellow-500 flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(255,215,0,0.3)] transform transition hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h5 class="text-yellow-500 font-bold mb-2 uppercase text-xs tracking-widest italic">3. Aktivacija</h5>
+                        <p class="text-[11px] text-gray-500 leading-relaxed px-4 text-center">Kliknite na gumb ispod i pošaljite podatke.</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 flex justify-center">
+                    <a href="https://t.me/TVOJ_USERNAME" target="_blank" class="group flex items-center space-x-4 bg-white/5 hover:bg-white/10 border border-white/10 px-8 py-4 rounded-2xl transition duration-300">
+                        <div class="w-10 h-10 bg-[#229ED9] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.891 8.11l-1.92 9.043c-.145.639-.522.796-1.057.497l-2.924-2.155-1.411 1.357c-.156.156-.287.287-.588.287l.21-2.98 5.424-4.898c.235-.21-.051-.327-.365-.118l-6.703 4.221-2.887-.902c-.628-.196-.641-.628.131-.929l11.279-4.347c.522-.196.979.117.811.87z"/></svg>
+                        </div>
+                        <div class="text-left">
+                            <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-widest">Pošalji dokaz na</span>
+                            <span class="block text-white font-black italic uppercase tracking-tighter">Support Telegram</span>
+                        </div>
+                    </a>
+                </div>
             </div>
-
-            <div class="relative z-10 flex flex-col items-center">
-                <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 shadow-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                </div>
-                <h5 class="text-white font-bold mb-2 uppercase text-xs tracking-widest italic">2. Podaci</h5>
-                <p class="text-[11px] text-gray-500 leading-relaxed px-4 text-center text-shadow-sm">Spremite vaš TV Username i TXID transakcije.</p>
-            </div>
-
-            <div class="relative z-10 flex flex-col items-center">
-                <div class="w-20 h-20 rounded-2xl bg-yellow-500 flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(255,215,0,0.3)] transform transition hover:scale-110">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                </div>
-                <h5 class="text-yellow-500 font-bold mb-2 uppercase text-xs tracking-widest italic">3. Aktivacija</h5>
-                <p class="text-[11px] text-gray-500 leading-relaxed px-4">Kliknite na gumb ispod i pošaljite podatke.</p>
-            </div>
         </div>
-
-        <div class="mt-12 flex justify-center">
-            <a href="https://t.me/TVOJ_USERNAME" target="_blank" class="group flex items-center space-x-4 bg-white/5 hover:bg-white/10 border border-white/10 px-8 py-4 rounded-2xl transition duration-300">
-                <div class="w-10 h-10 bg-[#229ED9] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.891 8.11l-1.92 9.043c-.145.639-.522.796-1.057.497l-2.924-2.155-1.411 1.357c-.156.156-.287.287-.588.287l.21-2.98 5.424-4.898c.235-.21-.051-.327-.365-.118l-6.703 4.221-2.887-.902c-.628-.196-.641-.628.131-.929l11.279-4.347c.522-.196.979.117.811.87z"/></svg>
-                </div>
-                <div class="text-left">
-                    <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-widest">Pošalji dokaz na</span>
-                    <span class="block text-white font-black italic uppercase tracking-tighter">Support Telegram</span>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
     </section>
 
     <section class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5">
         <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-black mb-6 italic uppercase tracking-tighter leading-tight" style="word-spacing: 0.2em;">
-    Zašto trgovati zlatom <span class="text-yellow-500">uz naš protokol?</span>
-</h2>
+            <h2 class="text-4xl md:text-5xl font-black mb-6 italic uppercase tracking-tighter leading-tight">
+                Zašto trgovati zlatom <span class="text-yellow-500">uz naš protokol?</span>
+            </h2>
             <p class="text-gray-500 max-w-2xl mx-auto">Ovladavanje XAUUSD tržištem zahtijeva više od običnog indikatora. Zahtijeva struktuiranu strategiju dizajniranu za visoku volatilnost.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -218,18 +220,18 @@
     </section>
 
     <section class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5 bg-white/[0.01]">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 text-center md:text-left">
             <div class="space-y-12">
                 <div>
                     <h3 class="text-2xl font-black mb-4 italic uppercase text-white">Kako rade naši signali</h3>
                     <p class="text-gray-400 leading-relaxed text-sm">
-                        Za razliku od običnih skripti, <strong>XAU Protocol</strong> skenira tržište uživo i kombinuje smjer trenda, volatilnost i institucionalne zone ponude i potražnje. Kada se uslovi poklope na <strong>15-minutnom grafikonu</strong>, indikator ispisuje jasan signal sa predloženim <strong>Stop-Loss i Take-Profit nivoima</strong>. Ovo vam pomaže da izbjegnete emocionalne odluke i kasne ulaske.
+                        Za razliku od običnih skripti, <strong>XAU Protocol</strong> skenira tržište uživo i kombinuje smjer trenda, volatilnost i institucionalne zone ponude i potražnje. Kada se uslovi poklope na <strong>15-minutnom grafikonu</strong>, indikator ispisuje jasan signal sa predloženim Stop-Loss i Take-Profit nivoima.
                     </p>
                 </div>
                 <div>
                     <h3 class="text-2xl font-black mb-4 italic uppercase text-white">Idealni 15M Tajmfrejm</h3>
                     <p class="text-gray-400 leading-relaxed text-sm">
-                        Odabrali smo 15-minutni grafikon jer pruža savršen balans: dovoljno čest za <strong>day trading</strong>, ali dovoljno čist da izbjegne "šum" koji se javlja na 1-minutnim grafikonima. To je idealno podešavanje za trejdere koji žele osigurati profit unutar jedne sesije.
+                        Odabrali smo 15-minutni grafikon jer pruža savršen balans: dovoljno čest za day trading, ali dovoljno čist da izbjegne "šum" koji se javlja na 1-minutnim grafikonima. To je idealno podešavanje za osiguravanje profita unutar sesije.
                     </p>
                 </div>
             </div>
@@ -243,7 +245,7 @@
                 <div>
                     <h3 class="text-2xl font-black mb-4 italic uppercase text-white">Stvoreno za Uspjeh</h3>
                     <p class="text-gray-400 leading-relaxed text-sm">
-                        Većini besplatnih indikatora nedostaje <strong>dinamička Trail SL logika</strong> potrebna za zaštitu kapitala tokom <strong>Prop Firm izazova</strong>. Naš fiksni set pravila osigurava da vidite iste zone i filtere na svakom trejdu, olakšavajući održavanje discipline.
+                        Većini besplatnih indikatora nedostaje dinamička Trail SL logika potrebna za zaštitu kapitala. Naš fiksni set pravila osigurava da vidite iste zone i filtere na svakom trejdu, olakšavajući održavanje discipline.
                     </p>
                 </div>
             </div>
@@ -252,7 +254,7 @@
 
     <section class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5 bg-yellow-500/[0.02]">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="glass-card p-10 rounded-3xl border-yellow-500/20 shadow-[0_0_30px_rgba(255,215,0,0.05)]">
+            <div class="glass-card p-10 rounded-3xl border-yellow-500/20">
                 <h4 class="text-yellow-500 font-bold uppercase text-xs tracking-widest mb-6">Statistika Sistema</h4>
                 <div class="space-y-8">
                     <div class="flex justify-between items-end border-b border-white/5 pb-4">
@@ -269,17 +271,17 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="text-center md:text-left">
                 <h2 class="text-3xl font-black mb-6 italic uppercase tracking-tighter">Trejding je igra brojeva.</h2>
                 <div class="space-y-6 text-gray-400 leading-relaxed text-sm">
                     <p>
-                        Tajna našeg <strong>Gold Protokola</strong> nije u predviđanju budućnosti – već u upravljanju matematikom. U trejdingu ćete se suočiti sa periodima stagnacije gdje je moguće imati 5 gubitaka u nizu. Ali isto tako, u trendu ćete imati 5 uzastopnih pogodaka.
+                        Tajna našeg <strong>Gold Protokola</strong> nije u predviđanju budućnosti – već u upravljanju matematikom. U trejdingu ćete se suočiti sa periodima stagnacije, ali u trendu ćete imati uzastopne pogotke.
                     </p>
                     <p class="text-white font-bold italic text-lg">
                         Prednost je jednostavna: Svaki dobitni trejd pokriva barem dva gubitna. 
                     </p>
                     <p>
-                        Zato je <strong>disciplina jedina varijabla</strong>. Da biste ostvarili profitabilnost, morate uzeti svaki signal. Preskakanje trejda zbog prethodnog gubitka je način na koji većina trejdera propusti onaj "veliki" dobitak koji pokriva sve minuse.
+                        Zato je disciplina jedina varijabla. Da biste ostvarili profitabilnost, morate uzeti svaki signal bez obzira na prethodne ishode.
                     </p>
                 </div>
             </div>
@@ -294,19 +296,11 @@
             <h2 class="text-4xl font-black mb-8 italic uppercase tracking-tighter">11 Godina Evolucije.</h2>
         </div>
         <div class="glass-card p-10 rounded-3xl border-white/5 relative bg-gradient-to-b from-white/[0.02] to-transparent shadow-xl">
-            <div class="space-y-6 text-gray-400 leading-relaxed italic text-lg">
-                <p>
-                    "Moj put je počeo <strong>2015. godine</strong>. Tada sam trgovao BTC/USD i razne kripto parove, tražeći legitiman put u online svijetu punom praznih obećanja i prevara."
-                </p>
-                <p>
-                    "Nakon godina učenja, shvatio sam da je trejding jedina potpuno transparentna i legalna profesija gdje vaš uspjeh zavisi isključivo od vaše vještine i discipline. Nisam počeo jer sam morao – već zato što volim izazov tržišta."
-                </p>
-                <p>
-                    "Vremenom sam se fokusirao na <strong>Forex</strong>, posebno <strong>EURUSD i XAUUSD</strong>. Prelazak na Zlato je bio ključan. Sve kockice su se posložile i shvatio sam da najbolje godine tek dolaze."
-                </p>
-                <p>
-                    "<strong>XAU Protocol</strong> je rezultat decenijskog iskustva. Napravljen je na saznanju da je u trejdingu posjedovanje matematičke prednosti nad drugima jedina stvar koja je bitna."
-                </p>
+            <div class="space-y-6 text-gray-400 leading-relaxed italic text-lg text-center md:text-left">
+                <p>"Moj put je počeo 2015. godine. Tada sam trgovao BTC/USD i razne kripto parove, tražeći legitiman put u online svijetu."</p>
+                <p>"Nakon godina učenja, shvatio sam da je trejding jedina potpuno transparentna profesija gdje vaš uspjeh zavisi isključivo od vještine i discipline."</p>
+                <p>"Vremenom sam se fokusirao na Forex, posebno EURUSD i XAUUSD. Prelazak na Zlato je bio ključan. Sve kockice su se posložile."</p>
+                <p>"XAU Protocol je rezultat decenijskog iskustva. Napravljen je na saznanju da je u trejdingu posjedovanje matematičke prednosti jedina stvar koja je bitna."</p>
             </div>
             <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="flex items-center space-x-4 text-left">
@@ -322,72 +316,58 @@
     </section>
 
     <section class="max-w-4xl mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <a href="https://portal.fpmarkets.com/register?fpm-affiliate-utm-source=Referrel&fpm-affiliate-pcode=R001-003RE00000hxJp8YAE" target="_blank" class="glass-card p-6 rounded-2xl border-white/5 flex items-center justify-between group hover:border-yellow-500/30">
-            <div>
-                <div class="text-[10px] uppercase text-gray-500 font-bold tracking-widest mb-1">Preporučeni Broker</div>
-                <div class="text-xl font-black text-white italic">Fpmarkets <span class="text-yellow-500 text-xs ml-2">TV Integrated</span></div>
-            </div>
-            <div class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </div>
-        </a>
-
-        <a href="https://trader.ftmo.com/?affiliates=gNUHmQwhzxzcRtlncDEg" target="_blank" class="glass-card p-6 rounded-2xl border-white/5 flex items-center justify-between group hover:border-yellow-500/30">
-            <div>
-                <div class="text-[10px] uppercase text-gray-500 font-bold tracking-widest mb-1">Prop Firm Partner</div>
-                <div class="text-xl font-black text-white italic">FTMO <span class="text-yellow-500 text-xs ml-2">Industry Leader</span></div>
-            </div>
-            <div class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </div>
-        </a>
-    </div>
-</section>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <a href="https://portal.fpmarkets.com/register?fpm-affiliate-utm-source=Referrel&fpm-affiliate-pcode=R001-003RE00000hxJp8YAE" target="_blank" class="glass-card p-6 rounded-2xl border-white/5 flex items-center justify-between group">
+                <div>
+                    <div class="text-[10px] uppercase text-gray-500 font-bold tracking-widest mb-1">Preporučeni Broker</div>
+                    <div class="text-xl font-black text-white italic">Fpmarkets <span class="text-yellow-500 text-xs ml-2">TV Integrated</span></div>
+                </div>
+                <div class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </div>
+            </a>
+            <a href="https://trader.ftmo.com/?affiliates=gNUHmQwhzxzcRtlncDEg" target="_blank" class="glass-card p-6 rounded-2xl border-white/5 flex items-center justify-between group">
+                <div>
+                    <div class="text-[10px] uppercase text-gray-500 font-bold tracking-widest mb-1">Prop Firm Partner</div>
+                    <div class="text-xl font-black text-white italic">FTMO <span class="text-yellow-500 text-xs ml-2">Industry Leader</span></div>
+                </div>
+                <div class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </div>
+            </a>
+        </div>
+    </section>
 
     <section id="faq" class="max-w-4xl mx-auto px-6 py-24 border-t border-white/5">
-    <div class="text-center mb-16">
-        <h2 class="text-xs font-bold text-yellow-500 uppercase tracking-[0.3em] mb-4">Podrška</h2>
-        <h3 class="text-4xl font-black mb-6 italic uppercase tracking-tighter">Česta Pitanja</h3>
-    </div>
-
-    <div class="space-y-6">
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-            <h4 class="text-white font-bold mb-3 italic">Treba li mi prethodno iskustvo?</h4>
-            <p class="text-gray-500 text-sm leading-relaxed">Ne. XAU Protocol je "Copy & Trade" sistem. Svaki signal pruža jasan ulaz, Stop Loss i Take Profit. Vaš jedini zadatak je da pratite signale sa disciplinom.</p>
+        <div class="text-center mb-16">
+            <h2 class="text-xs font-bold text-yellow-500 uppercase tracking-[0.3em] mb-4">Podrška</h2>
+            <h3 class="text-4xl font-black mb-6 italic uppercase tracking-tighter">Česta Pitanja</h3>
         </div>
-
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-    <h4 class="text-white font-bold mb-3 italic">Na kojim brokerima sistem radi?</h4>
-    <p class="text-gray-500 text-sm leading-relaxed">
-        Signale pratite isključivo na **TradingView** platformi. Za samo izvršenje trejdova preporučujemo brokere sa niskim spread-om. Naš favorit je <a href="TVOJ_FPMARKETS_LINK" target="_blank" class="text-yellow-500 underline hover:text-yellow-400">Fpmarkets</a> jer nudi direktnu integraciju sa TradingView-om, što vam omogućava najbrži ulazak u poziciju čim se signal pojavi.
-    </p>
+        <div class="space-y-6">
+            <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <h4 class="text-white font-bold mb-3 italic">Treba li mi prethodno iskustvo?</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Ne. XAU Protocol je Copy & Trade sistem. Svaki signal pruža jasan ulaz, SL i TP. Vaš jedini zadatak je disciplina.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <h4 class="text-white font-bold mb-3 italic">Na kojim brokerima sistem radi?</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Signale pratite na TradingView-u. Za izvršenje preporučujemo brokere sa niskim spread-om poput Fpmarkets-a.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <h4 class="text-white font-bold mb-3 italic">Mogu li koristiti ovo za Prop Firm izazove?</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Da. Protokol je optimizovan za pravila o drawdown-u kod firmi poput FTMO i MyFundedFX.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <h4 class="text-white font-bold mb-3 italic">Da li nudite povrat novca (Refund)?</h4>
+                <p class="text-gray-500 text-sm leading-relaxed text-xs text-red-500/50 italic">Zbog prirode digitalnog proizvoda i trenutnog pristupa algoritmu, ne nudimo povrat novca.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-            <h4 class="text-white font-bold mb-3 italic">Mogu li koristiti besplatnu verziju TradingView-a?</h4>
-            <p class="text-gray-500 text-sm leading-relaxed">Da. XAU Protocol indikator radi na besplatnoj verziji TradingView-a. Ne morate plaćati dodatne mjesečne pretplate platformi da biste koristili naš sistem.</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-            <h4 class="text-white font-bold mb-3 italic">Mogu li koristiti ovo za Prop Firm izazove?</h4>
-            <p class="text-gray-500 text-sm leading-relaxed">Da. Protokol je specifično optimizovan za pravila o drawdown-u kod firmi poput FTMO i MyFundedFX. Pomaže vam da održite konzistentnost potrebnu za prolazak evaluacije.</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-            <h4 class="text-white font-bold mb-3 italic">Trebam li početi na Live ili Demo računu?</h4>
-            <p class="text-yellow-500/80 text-sm leading-relaxed font-bold italic">Strogo preporučujemo testiranje na Demo računu barem 10-15 dana. To vam omogućava da steknete samopouzdanje u matematiku sistema prije nego uložite stvarni kapital.</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-            <h4 class="text-white font-bold mb-3 italic">Da li nudite povrat novca (Refund)?</h4>
-            <p class="text-gray-500 text-sm leading-relaxed text-xs">Zbog digitalne prirode proizvoda i trenutnog pristupa našem algoritmu, ne nudimo povrat novca. Savjetujemo da prvo provjerite sve statistike i počnete sa mjesečnom pretplatom.</p>
-        </div>
-    </div>
-</section>
-    
     <footer class="p-10 text-center border-t border-white/5">
-        <p class="text-xs text-gray-600 uppercase tracking-widest">XAU Protocol © 2026 | Izgrađeno za disciplinovane trejdere.</p>
+        <p class="text-[10px] text-gray-600 uppercase tracking-widest leading-loose">
+            XAU Protocol © 2026 | Izgrađeno za disciplinovane trejdere.<br>
+            Sadržaj nije finansijski savjet. Trgujte odgovorno.
+        </p>
     </footer>
 
 </body>

@@ -125,24 +125,52 @@
             </div>
         </div>
 
-        <div class="mt-12 p-8 rounded-3xl bg-yellow-500/5 border border-yellow-500/20 max-w-2xl mx-auto">
-    <h4 class="text-white font-black mb-6 uppercase italic tracking-widest text-center text-sm">3 Koraka do Aktivacije</h4>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-        <div>
-            <div class="w-10 h-10 rounded-full bg-yellow-500 text-black font-black flex items-center justify-center mx-auto mb-4 italic text-sm shadow-[0_0_15px_rgba(255,215,0,0.3)]">1</div>
-            <p class="text-[11px] text-gray-400 font-bold uppercase tracking-tighter">Uplatite putem Kripto valuta ili Kartice</p>
+        <div class="mt-16 max-w-4xl mx-auto border border-yellow-500/10 bg-gradient-to-b from-yellow-500/[0.03] to-transparent p-1 shadow-2xl rounded-[2rem]">
+    <div class="bg-[#030406] rounded-[1.9rem] p-8 md:p-12">
+        <div class="text-center mb-10">
+            <h4 class="text-white font-black mb-3 uppercase italic tracking-tighter text-2xl">Proces Aktivacije</h4>
+            <p class="text-gray-500 text-sm italic">Slijedite ove korake nakon što odaberete svoj plan iznad.</p>
         </div>
-        <div>
-            <div class="w-10 h-10 rounded-full bg-yellow-500 text-black font-black flex items-center justify-center mx-auto mb-4 italic text-sm shadow-[0_0_15px_rgba(255,215,0,0.3)]">2</div>
-            <p class="text-[11px] text-gray-400 font-bold uppercase tracking-tighter">Pošaljite TV Username + TXID (Hash)</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <div class="hidden md:block absolute top-10 left-20 right-20 h-px bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent"></div>
+
+            <div class="relative z-10 flex flex-col items-center">
+                <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 group-hover:border-yellow-500/50 transition shadow-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                </div>
+                <h5 class="text-white font-bold mb-2 uppercase text-xs tracking-widest italic">1. Plaćanje</h5>
+                <p class="text-[11px] text-gray-500 leading-relaxed px-4">Izvršite uplatu putem Kripto valuta ili Kartice.</p>
+            </div>
+
+            <div class="relative z-10 flex flex-col items-center">
+                <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 shadow-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                </div>
+                <h5 class="text-white font-bold mb-2 uppercase text-xs tracking-widest italic">2. Podaci</h5>
+                <p class="text-[11px] text-gray-500 leading-relaxed px-4 text-center text-shadow-sm">Spremite vaš TV Username i TXID transakcije.</p>
+            </div>
+
+            <div class="relative z-10 flex flex-col items-center">
+                <div class="w-20 h-20 rounded-2xl bg-yellow-500 flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(255,215,0,0.3)] transform transition hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <h5 class="text-yellow-500 font-bold mb-2 uppercase text-xs tracking-widest italic">3. Aktivacija</h5>
+                <p class="text-[11px] text-gray-500 leading-relaxed px-4">Kliknite na gumb ispod i pošaljite podatke.</p>
+            </div>
         </div>
-        <div>
-            <div class="w-10 h-10 rounded-full bg-yellow-500 text-black font-black flex items-center justify-center mx-auto mb-4 italic text-sm shadow-[0_0_15px_rgba(255,215,0,0.3)]">3</div>
-            <p class="text-[11px] text-gray-400 font-bold uppercase tracking-tighter">Pristupite skripti nakon provjere</p>
+
+        <div class="mt-12 flex justify-center">
+            <a href="https://t.me/TVOJ_USERNAME" target="_blank" class="group flex items-center space-x-4 bg-white/5 hover:bg-white/10 border border-white/10 px-8 py-4 rounded-2xl transition duration-300">
+                <div class="w-10 h-10 bg-[#229ED9] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.891 8.11l-1.92 9.043c-.145.639-.522.796-1.057.497l-2.924-2.155-1.411 1.357c-.156.156-.287.287-.588.287l.21-2.98 5.424-4.898c.235-.21-.051-.327-.365-.118l-6.703 4.221-2.887-.902c-.628-.196-.641-.628.131-.929l11.279-4.347c.522-.196.979.117.811.87z"/></svg>
+                </div>
+                <div class="text-left">
+                    <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-widest">Pošalji dokaz na</span>
+                    <span class="block text-white font-black italic uppercase tracking-tighter">Support Telegram</span>
+                </div>
+            </a>
         </div>
-    </div>
-    <div class="mt-8 pt-6 border-t border-white/5 text-center">
-        <p class="text-[10px] text-gray-500 italic uppercase">Nakon uplate, kontaktirajte našu podršku sa dokazom o transakciji za brzu aktivaciju.</p>
     </div>
 </div>
     </section>

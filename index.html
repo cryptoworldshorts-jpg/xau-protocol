@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>XAU Protocol | Professional Gold Trading Systems</title>
     <meta name="description" content="Professional XAUUSD Gold Trading Protocol. High-precision 15m signals with Entry, SL, and TP for Funded and Live accounts. Start trading with math.">
@@ -25,6 +25,10 @@
             color: #f3f4f6; 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             scroll-behavior: smooth; 
+            /* FIX ZA BJEŽANJE EKRANA */
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
         .gold-gradient {
             background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
@@ -44,438 +48,257 @@
         .hero-glow {
             position: absolute;
             top: 0; left: 50%; transform: translateX(-50%);
-            width: 600px; height: 300px;
+            width: 100vw; height: 300px;
             background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
             z-index: -1;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
+
     <div class="hero-glow"></div>
 
-<nav class="max-w-6xl mx-auto p-4 md:p-6 flex justify-between items-center relative z-50">
-    <a href="/" class="group flex items-center gap-2 md:gap-3 flex-shrink-0">
-        <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300 group-hover:border-yellow-500/50 group-hover:bg-yellow-500/5 group-hover:shadow-[0_0_20px_rgba(255,215,0,0.15)]">
-            <span class="text-2xl font-black italic uppercase tracking-tighter leading-none flex">
-                <span class="text-white">X</span><span class="text-yellow-500">P</span>
-            </span>
-        </div>
-        <div class="hidden md:flex flex-col leading-none">
-            <span class="text-white font-black italic uppercase text-sm tracking-tighter group-hover:text-yellow-500 transition-colors">XAU</span>
-            <span class="text-[10px] font-bold uppercase text-gray-500 tracking-[0.3em]">Protocol</span>
-        </div>
-    </a>
+    <nav class="max-w-6xl mx-auto p-4 md:p-6 flex justify-between items-center relative z-50">
+        <a href="/" class="group flex items-center gap-2 md:gap-3 flex-shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300 group-hover:border-yellow-500/50">
+                <span class="text-2xl font-black italic uppercase tracking-tighter leading-none flex">
+                    <span class="text-white">X</span><span class="text-yellow-500">P</span>
+                </span>
+            </div>
+            <div class="hidden md:flex flex-col leading-none">
+                <span class="text-white font-black italic uppercase text-sm tracking-tighter group-hover:text-yellow-500 transition-colors">XAU</span>
+                <span class="text-[10px] font-bold uppercase text-gray-500 tracking-[0.3em]">Protocol</span>
+            </div>
+        </a>
 
-    <div class="flex items-center space-x-3 md:space-x-8 text-[10px] md:text-xs font-bold uppercase tracking-widest flex-shrink-0">
-        <a href="#systems" class="text-white/80 hover:text-yellow-500 transition-colors italic">Systems</a>
-        <a href="#about" class="text-white/80 hover:text-yellow-500 transition-colors italic">About</a>
-        <a href="/hr" class="border border-yellow-500/30 text-yellow-500 px-2 md:px-3 py-1 rounded hover:bg-yellow-500/10 transition-all italic">HR</a>
-    </div>
-</nav>
+        <div class="flex items-center space-x-3 md:space-x-8 text-[10px] md:text-xs font-bold uppercase tracking-widest flex-shrink-0">
+            <a href="#systems" class="text-white/80 hover:text-yellow-500 transition-colors italic">Systems</a>
+            <a href="#about" class="text-white/80 hover:text-yellow-500 transition-colors italic">About</a>
+            <a href="./hr/" class="border border-yellow-500/30 text-yellow-500 px-2 md:px-3 py-1 rounded hover:bg-yellow-500/10 transition-all italic uppercase">HR</a>
+        </div>
+    </nav>
 
-    <header class="max-w-4xl mx-auto text-center py-20 px-6">
-    <h1 class="flex flex-col items-center text-center text-[10vw] md:text-7xl lg:text-[90px] font-black mb-8 italic uppercase tracking-tighter leading-[0.9] md:leading-[0.8] drop-shadow-2xl w-full px-6 overflow-visible" style="word-spacing: 0.1em;">
-    <span class="block md:whitespace-nowrap px-4">Trade Gold with</span>
-    <span class="text-yellow-500 block md:whitespace-nowrap px-4">Mathematical Edge.</span>
-</h1>
-    <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-        Stop overthinking. A high-precision 15M system with automated Entry, SL, and TP. 
-        <span class="text-white font-bold italic">One successful signal can recover your entire monthly subscription.</span>
-    </p>
-    <div class="flex flex-col md:flex-row justify-center gap-4">
-        <a href="#systems" class="bg-yellow-500 text-black px-12 py-5 rounded-full font-black hover:shadow-[0_0_30px_rgba(255,215,0,0.4)] transition transform hover:-translate-y-1">GET ACCESS NOW</a>
-        <a href="#results" class="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full font-bold hover:bg-white/10 transition italic uppercase text-xs tracking-widest">Live Signals</a>
-    </div>
-</header>
+    <header class="max-w-4xl mx-auto text-center py-16 md:py-24 px-6">
+        <h1 class="flex flex-col items-center text-center text-[10vw] md:text-6xl lg:text-[85px] font-black mb-8 italic uppercase tracking-tighter leading-[0.9] md:leading-[0.8] drop-shadow-2xl overflow-visible">
+            <span class="block md:whitespace-nowrap px-2 text-white">Trade Gold with</span>
+            <span class="text-yellow-500 block md:whitespace-nowrap px-2">Mathematical Edge.</span>
+        </h1>
+        <p class="text-base md:text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Stop overthinking. A high-precision 15M system with automated Entry, SL, and TP levels. 
+            <span class="text-white font-bold italic block mt-2">One successful signal can recover your entire monthly subscription.</span>
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#systems" class="bg-yellow-500 text-black px-10 py-4 md:px-12 md:py-5 rounded-full font-black hover:shadow-[0_0_30px_rgba(255,215,0,0.4)] transition transform hover:-translate-y-1 uppercase tracking-widest text-sm text-center">Get Access Now</a>
+            <a href="#about" class="bg-white/5 border border-white/10 text-white px-8 py-4 md:px-10 md:py-5 rounded-full font-bold hover:bg-white/10 transition italic uppercase text-[10px] tracking-widest text-center">Learn More</a>
+        </div>
+    </header>
 
     <section id="systems" class="max-w-6xl mx-auto px-6 py-20">
-    <div class="max-w-2xl mx-auto mb-16">
-    <div class="glass-card p-10 rounded-3xl relative overflow-hidden ring-2 ring-yellow-500/40 shadow-[0_0_50px_rgba(255,215,0,0.1)]">
-        <div class="absolute top-0 right-0 bg-yellow-500 text-black px-6 py-1 font-black text-xs uppercase tracking-widest rounded-bl-2xl">
-            Active System
-        </div>
-        
-        <h3 class="text-yellow-500 font-bold mb-2 uppercase text-xs tracking-[0.3em]">XAU/USD 15M Protocol</h3>
-        <h2 class="text-4xl font-black mb-6 italic uppercase tracking-tighter">Gold Execution</h2>
-        
-        <p class="text-gray-400 mb-10 leading-relaxed text-lg">
-            Precision-engineered for Gold. Featuring a specialized volatility filter to avoid fakeouts and a dynamic Trail SL to maximize every trend. Optimized for both Live and Funded account environments.
-        </p>
-
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-10 p-6 bg-white/5 rounded-2xl border border-white/5">
-            <div class="text-center sm:text-left">
-                <div class="text-4xl font-black text-white">$50</div>
-                <div class="text-[10px] uppercase text-gray-500 tracking-widest font-bold">Monthly Access</div>
-            </div>
-            <div class="hidden sm:block w-px h-10 bg-white/10"></div>
-            <div class="text-center sm:text-right">
-                <div class="text-4xl font-black text-yellow-500">$500</div>
-                <div class="text-[10px] uppercase text-yellow-500/50 tracking-widest font-bold">Yearly (Save $100)</div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <button class="py-4 rounded-xl bg-yellow-500 text-black font-black hover:bg-yellow-400 transition shadow-lg uppercase text-sm tracking-widest">Buy Monthly</button>
-            <button class="py-4 rounded-xl bg-transparent border-2 border-yellow-500 text-yellow-500 font-black hover:bg-yellow-500/10 transition uppercase text-sm tracking-widest">Buy Yearly</button>
-        </div>
-    </div>
-</div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div class="glass-card p-8 rounded-3xl opacity-40 border-white/5 border grayscale hover:opacity-60 transition">
-            <div class="mb-4 text-xs font-bold text-gray-500 uppercase tracking-widest">In Development</div>
-            <h2 class="text-2xl font-black mb-4 italic text-gray-400 uppercase">BTC Snipe</h2>
-            <p class="text-gray-500 mb-8 text-sm leading-relaxed italic">Momentum-based algorithm for Bitcoin. Currently in final backtesting phase.</p>
-            <button disabled class="w-full py-3 rounded-xl bg-gray-900 text-gray-600 font-black cursor-not-allowed uppercase text-xs tracking-widest border border-white/5">Coming Soon</button>
-        </div>
-
-        <div class="glass-card p-8 rounded-3xl opacity-40 border-white/5 border grayscale hover:opacity-60 transition">
-            <div class="mb-4 text-xs font-bold text-gray-500 uppercase tracking-widest">In Development</div>
-            <h2 class="text-2xl font-black mb-4 italic text-gray-400 uppercase">EU Flow</h2>
-            <p class="text-gray-500 mb-8 text-sm leading-relaxed italic">Precision entries for EUR/USD. Optimized for London & NY sessions.</p>
-            <button disabled class="w-full py-3 rounded-xl bg-gray-900 text-gray-600 font-black cursor-not-allowed uppercase text-xs tracking-widest border border-white/5">Coming Soon</button>
-        </div>
-    </div>
-
-  
-<div class="mt-16 max-w-4xl mx-auto border border-yellow-500/10 bg-gradient-to-b from-yellow-500/[0.03] to-transparent p-1 shadow-2xl rounded-[2rem]">
-    <div class="bg-[#030406] rounded-[1.9rem] p-8 md:p-12">
-        <div class="text-center mb-10">
-            <h4 class="text-white font-black mb-3 uppercase italic tracking-tighter text-2xl">Activation Process</h4>
-            <p class="text-gray-500 text-sm italic">Follow these steps after choosing your plan above.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            <div class="hidden md:block absolute top-10 left-20 right-20 h-px bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent"></div>
-
-            <div class="relative z-10 flex flex-col items-center text-center">
-                <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 group-hover:border-yellow-500/50 transition shadow-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+        <div class="max-w-2xl mx-auto mb-16">
+            <div class="glass-card p-10 rounded-3xl relative overflow-hidden ring-2 ring-yellow-500/40 shadow-[0_0_50px_rgba(255,215,0,0.1)]">
+                <div class="absolute top-0 right-0 bg-yellow-500 text-black px-6 py-1 font-black text-xs uppercase tracking-widest rounded-bl-2xl">
+                    Active System
                 </div>
-                <h5 class="text-white font-bold mb-2 uppercase text-xs tracking-widest italic">1. Payment</h5>
-                <p class="text-[11px] text-gray-500 leading-relaxed px-4">Complete payment via Crypto or Credit Card.</p>
-            </div>
+                <h3 class="text-yellow-500 font-bold mb-2 uppercase text-xs tracking-[0.3em]">XAU/USD 15M Protocol</h3>
+                <h2 class="text-4xl font-black mb-6 italic uppercase tracking-tighter">Gold Execution</h2>
+                <p class="text-gray-400 mb-10 leading-relaxed text-lg">
+                    Precision-engineered for Gold. Featuring a specialized volatility filter to avoid fakeouts and a dynamic Trail SL to maximize every trend. Optimized for both Live and Funded accounts.
+                </p>
 
-            <div class="relative z-10 flex flex-col items-center text-center">
-                <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 shadow-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-10 p-6 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="text-center sm:text-left">
+                        <div class="text-4xl font-black text-white">$50</div>
+                        <div class="text-[10px] uppercase text-gray-500 tracking-widest font-bold">Monthly Access</div>
+                    </div>
+                    <div class="hidden sm:block w-px h-10 bg-white/10"></div>
+                    <div class="text-center sm:text-right">
+                        <div class="text-4xl font-black text-yellow-500">$500</div>
+                        <div class="text-[10px] uppercase text-yellow-500/50 tracking-widest font-bold">Yearly (Save $100)</div>
+                    </div>
                 </div>
-                <h5 class="text-white font-bold mb-2 uppercase text-xs tracking-widest italic">2. Data</h5>
-                <p class="text-[11px] text-gray-500 leading-relaxed px-4">Have your TV Username and TXID ready.</p>
-            </div>
 
-            <div class="relative z-10 flex flex-col items-center text-center">
-                <div class="w-20 h-20 rounded-2xl bg-yellow-500 flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(255,215,0,0.3)] transform transition hover:scale-110">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <button class="py-4 rounded-xl bg-yellow-500 text-black font-black hover:bg-yellow-400 transition shadow-lg uppercase text-sm tracking-widest">Buy Monthly</button>
+                    <button class="py-4 rounded-xl bg-transparent border-2 border-yellow-500 text-yellow-500 font-black hover:bg-yellow-500/10 transition uppercase text-sm tracking-widest">Buy Yearly</button>
                 </div>
-                <h5 class="text-yellow-500 font-bold mb-2 uppercase text-xs tracking-widest italic">3. Access</h5>
-                <p class="text-[11px] text-gray-500 leading-relaxed px-4">Click below to send data for activation.</p>
             </div>
         </div>
 
-        <div class="mt-12 flex justify-center">
-            <a href="https://t.me/YOUR_USERNAME" target="_blank" class="group flex items-center space-x-4 bg-white/5 hover:bg-white/10 border border-white/10 px-8 py-4 rounded-2xl transition duration-300">
-                <div class="w-10 h-10 bg-[#229ED9] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.891 8.11l-1.92 9.043c-.145.639-.522.796-1.057.497l-2.924-2.155-1.411 1.357c-.156.156-.287.287-.588.287l.21-2.98 5.424-4.898c.235-.21-.051-.327-.365-.118l-6.703 4.221-2.887-.902c-.628-.196-.641-.628.131-.929l11.279-4.347c.522-.196.979.117.811.87z"/></svg>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="glass-card p-8 rounded-3xl opacity-40 border-white/5 border grayscale">
+                <div class="mb-4 text-xs font-bold text-gray-500 uppercase tracking-widest">In Development</div>
+                <h2 class="text-2xl font-black mb-4 italic text-gray-400 uppercase">BTC Snipe</h2>
+                <p class="text-gray-500 mb-8 text-sm leading-relaxed italic">Momentum-based algorithm for Bitcoin. Currently in final testing phase.</p>
+                <button disabled class="w-full py-3 rounded-xl bg-gray-900 text-gray-600 font-black cursor-not-allowed uppercase text-xs tracking-widest border border-white/5">Coming Soon</button>
+            </div>
+            <div class="glass-card p-8 rounded-3xl opacity-40 border-white/5 border grayscale">
+                <div class="mb-4 text-xs font-bold text-gray-500 uppercase tracking-widest">In Development</div>
+                <h2 class="text-2xl font-black mb-4 italic text-gray-400 uppercase">EU Flow</h2>
+                <p class="text-gray-500 mb-8 text-sm leading-relaxed italic">Precision entries for EUR/USD. Optimized for London & NY sessions.</p>
+                <button disabled class="w-full py-3 rounded-xl bg-gray-900 text-gray-600 font-black cursor-not-allowed uppercase text-xs tracking-widest border border-white/5">Coming Soon</button>
+            </div>
+        </div>
+
+        <div class="mt-16 max-w-4xl mx-auto border border-yellow-500/10 bg-gradient-to-b from-yellow-500/[0.03] to-transparent p-1 shadow-2xl rounded-[2rem]">
+            <div class="bg-[#030406] rounded-[1.9rem] p-8 md:p-12">
+                <div class="text-center mb-10">
+                    <h4 class="text-white font-black mb-3 uppercase italic tracking-tighter text-2xl">Activation Process</h4>
+                    <p class="text-gray-500 text-sm italic">Follow these steps after choosing your plan above.</p>
                 </div>
-                <div class="text-left">
-                    <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-widest">Send proof to</span>
-                    <span class="block text-white font-black italic uppercase tracking-tighter">Support Telegram</span>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                    <div class="hidden md:block absolute top-10 left-20 right-20 h-px bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent"></div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 shadow-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                        </div>
+                        <h5 class="text-white font-bold mb-2 uppercase text-xs tracking-widest italic">1. Payment</h5>
+                        <p class="text-[11px] text-gray-500 px-4 text-center">Complete payment via Crypto or Credit Card.</p>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 shadow-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        </div>
+                        <h5 class="text-white font-bold mb-2 uppercase text-xs tracking-widest italic">2. Data</h5>
+                        <p class="text-[11px] text-gray-500 px-4 text-center">Have your TV Username and TXID ready.</p>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-yellow-500 flex items-center justify-center mb-4 shadow-xl transform transition hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h5 class="text-yellow-500 font-bold mb-2 uppercase text-xs tracking-widest italic">3. Access</h5>
+                        <p class="text-[11px] text-gray-500 px-4 text-center">Click below to send data for activation.</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 flex justify-center">
+                    <a href="https://t.me/YOUR_USERNAME" target="_blank" class="group flex items-center space-x-4 bg-white/5 hover:bg-white/10 border border-white/10 px-8 py-4 rounded-2xl transition duration-300">
+                        <div class="w-10 h-10 bg-[#229ED9] rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.891 8.11l-1.92 9.043c-.145.639-.522.796-1.057.497l-2.924-2.155-1.411 1.357c-.156.156-.287.287-.588.287l.21-2.98 5.424-4.898c.235-.21-.051-.327-.365-.118l-6.703 4.221-2.887-.902c-.628-.196-.641-.628.131-.929l11.279-4.347c.522-.196.979.117.811.87z"/></svg>
+                        </div>
+                        <div class="text-left">
+                            <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-widest">Send proof to</span>
+                            <span class="block text-white font-black italic uppercase tracking-tighter">Support Telegram</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-black mb-6 italic uppercase tracking-tighter leading-tight">
+                Why trade Gold <span class="text-yellow-500">with our protocol?</span>
+            </h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">Mastering the XAUUSD market requires more than just a simple indicator. It requires a structured strategy designed for high-volatility environments.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-yellow-500/20 transition group">
+                <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                </div>
+                <h4 class="text-xl font-bold mb-4 text-white uppercase italic tracking-tighter">Proprietary Filter</h4>
+                <p class="text-sm text-gray-500">Our algorithm identifies low-quality noise and filters choppy ranges, ensuring you only trade high-probability setups.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-yellow-500/20 transition group">
+                <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <h4 class="text-xl font-bold mb-4 text-white uppercase italic tracking-tighter">15M Precision</h4>
+                <p class="text-sm text-gray-500">The 15-minute chart is the sweet spot. Our system is tuned to capture momentum without the noise of lower timeframes.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-yellow-500/20 transition group">
+                <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                </div>
+                <h4 class="text-xl font-bold mb-4 text-white uppercase italic tracking-tighter">Funded Accounts</h4>
+                <p class="text-sm text-gray-500">Built for Prop Firm challenges. Maintain the discipline and drawdown rules required to pass evaluations and scale.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="max-w-4xl mx-auto px-6 py-24 border-t border-white/5">
+        <div class="text-center mb-12">
+            <div class="inline-block px-4 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-xs font-bold uppercase tracking-widest mb-4">
+                The Trader Behind the Protocol
+            </div>
+            <h2 class="text-4xl font-black mb-8 italic uppercase tracking-tighter">11 Years of Evolution.</h2>
+        </div>
+        <div class="glass-card p-10 rounded-3xl border-white/5 relative bg-gradient-to-b from-white/[0.02] to-transparent shadow-xl">
+            <div class="space-y-6 text-gray-400 leading-relaxed italic text-lg text-center md:text-left">
+                <p>"My journey began in 2015. Back then, I was trading BTC/USD and various crypto pairs, searching for a legitimate path in the digital world."</p>
+                <p>"After years of trial and error, I realized trading was the only transparent profession where success depends solely on skill and discipline."</p>
+                <p>"Over time, my focus expanded to Forex, specifically XAUUSD. The transition to Gold was a revelation where everything finally started to click."</p>
+                <p>"The XAU Protocol is the result of that decade-long puzzle. It's built on the realization that having a mathematical advantage is the only thing that matters."</p>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center space-x-4 text-left">
+                    <div class="w-12 h-12 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 font-black">XP</div>
+                    <div>
+                        <div class="text-white font-bold italic uppercase tracking-widest text-xs">Founder</div>
+                        <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-bold">XAU Protocol System</div>
+                    </div>
+                </div>
+                <a href="#systems" class="bg-yellow-500 text-black px-10 py-4 rounded-full font-black hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] transition uppercase text-xs tracking-widest">Join the Journey</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <a href="https://portal.fpmarkets.com/register?fpm-affiliate-utm-source=Referrel&fpm-affiliate-pcode=R001-003RE00000hxJp8YAE" target="_blank" class="glass-card p-6 rounded-2xl border-white/5 flex items-center justify-between group">
+                <div>
+                    <div class="text-[10px] uppercase text-gray-500 font-bold tracking-widest mb-1">Recommended Broker</div>
+                    <div class="text-xl font-black text-white italic">Fpmarkets <span class="text-yellow-500 text-xs ml-2 uppercase">TV Integrated</span></div>
+                </div>
+                <div class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </div>
+            </a>
+            <a href="https://trader.ftmo.com/?affiliates=gNUHmQwhzxzcRtlncDEg" target="_blank" class="glass-card p-6 rounded-2xl border-white/5 flex items-center justify-between group">
+                <div>
+                    <div class="text-[10px] uppercase text-gray-500 font-bold tracking-widest mb-1">Prop Firm Partner</div>
+                    <div class="text-xl font-black text-white italic">FTMO <span class="text-yellow-500 text-xs ml-2 uppercase">Industry Leader</span></div>
+                </div>
+                <div class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                 </div>
             </a>
         </div>
-    </div>
-</div>
-        
-</section>
-
-    <section class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5">
-    <div class="text-center mb-16">
-        <h2 class="text-xs font-bold text-yellow-500 uppercase tracking-[0.3em] mb-4">Market Edge</h2>
-        <h2 class="text-4xl md:text-5xl font-black mb-6 italic uppercase tracking-tighter leading-tight" style="word-spacing: 0.2em;">
-    Why trade Gold <span class="text-yellow-500">with our protocol?</span>
-</h2>
-        <p class="text-gray-500 max-w-2xl mx-auto">Mastering the XAUUSD market requires more than just a simple buy/sell indicator. It requires a structured strategy designed for high-volatility environments.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        
-        <div class="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-yellow-500/20 transition group">
-            <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor font-bold"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-            </div>
-            <h4 class="text-xl font-bold mb-4 text-white uppercase italic tracking-tighter">Proprietary Filter</h4>
-            <p class="text-sm text-gray-500 leading-relaxed">Most <strong>Gold signals</strong> fail during market consolidation. Our algorithm identifies "low-quality" noise and filters out choppy ranges, ensuring you only trade high-probability <strong>XAUUSD setups</strong>.</p>
-        </div>
-
-        <div class="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-yellow-500/20 transition group text-shadow-sm">
-            <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor font-bold"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            </div>
-            <h4 class="text-xl font-bold mb-4 text-white uppercase italic tracking-tighter">15M Timeframe Precision</h4>
-            <p class="text-sm text-gray-500 leading-relaxed">The 15-minute chart is the "Sweet Spot" for <strong>day traders</strong>. Our system is fine-tuned to capture intra-day momentum without the "market lag" found in higher timeframes.</p>
-        </div>
-
-        <div class="p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-yellow-500/20 transition group">
-            <div class="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500 group-hover:text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor font-bold"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-            </div>
-            <h4 class="text-xl font-bold mb-4 text-white uppercase italic tracking-tighter">Funded Account Focus</h4>
-            <p class="text-sm text-gray-500 leading-relaxed">Built for traders aiming to pass <strong>Prop Firm challenges</strong>. By following a strict <strong>Risk/Reward strategy</strong> and dynamic Trail SL, you maintain the drawdown discipline required by institutional firms.</p>
-        </div>
-
-    </div>
-</section>
-
-    <section class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5 bg-white/[0.01]">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        
-        <div class="space-y-12">
-            <div>
-                <h3 class="text-2xl font-black mb-4 italic uppercase text-white">How Our Gold Signals Work</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">
-                    Unlike basic scripts that simply cross moving averages, the <strong>XAU Protocol</strong> scans live market data to combine trend direction, volatility, and institutional supply/demand zones. We've removed the guesswork. When conditions line up on the <strong>15-minute timeframe</strong>, the indicator prints a clear signal with a suggested <strong>Stop-Loss and Take-Profit region</strong>. This helps you avoid emotional decisions and late entries in the fast-moving Gold market.
-                </p>
-            </div>
-
-            <div>
-                <h3 class="text-2xl font-black mb-4 italic uppercase text-white">The 15M Sweet Spot</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">
-                    While our roadmap includes <strong>BTCUSD</strong> and <strong>EURUSD</strong>, our current flagship is optimized strictly for Gold. We chose the 15-minute chart because it provides the perfect balance: frequent enough for <strong>day trading</strong> but clean enough to avoid the "noise" of 1-minute scalping. It’s the ideal setup for traders who want to secure profits within a single session.
-                </p>
-            </div>
-        </div>
-
-        <div class="space-y-12">
-            <div>
-                <h3 class="text-2xl font-black mb-4 italic uppercase text-white">Professional Visuals vs. Chart Chaos</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">
-                    Many traders search for ways to <strong>remove messy buy/sell arrows in TradingView</strong> because free scripts flood their screens with false signals. Our system is built for clarity. By filtering out low-probability ranges, you get a professional overlay that only displays high-conviction setups. It’s a <strong>TradingView indicator</strong> designed for those who value a clean workspace and institutional-grade execution.
-                </p>
-            </div>
-
-            <div>
-                <h3 class="text-2xl font-black mb-4 italic uppercase text-white">Built for Funding Success</h3>
-                <p class="text-gray-400 leading-relaxed text-sm">
-                    Why choose a specialized protocol over free indicators? Most free scripts lack the <strong>dynamic Trail SL logic</strong> required to protect capital during <strong>Prop Firm challenges</strong>. Our fixed rule set ensures you see the same zones and filters on every trade, making it easier to maintain the drawdown discipline needed to pass evaluations and scale your funded accounts.
-                </p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-    <section class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5 bg-yellow-500/[0.02]">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        
-        <div class="glass-card p-10 rounded-3xl border-yellow-500/20 shadow-[0_0_30px_rgba(255,215,0,0.05)]">
-            <h4 class="text-yellow-500 font-bold uppercase text-xs tracking-widest mb-6 text-shadow-sm">System Statistics</h4>
-            <div class="space-y-8">
-                <div class="flex justify-between items-end border-b border-white/5 pb-4">
-                    <span class="text-gray-400">Signal Win Rate</span>
-                    <span class="text-3xl font-black text-white italic text-shadow-lg">~57%</span>
-                </div>
-                <div class="flex justify-between items-end border-b border-white/5 pb-4">
-                    <span class="text-gray-400">Average Risk/Reward</span>
-                    <span class="text-3xl font-black text-yellow-500 italic text-shadow-lg">1:2+</span>
-                </div>
-                <div class="flex justify-between items-end border-b border-white/5 pb-4">
-                    <span class="text-gray-400">Optimized Timeframe</span>
-                    <span class="text-3xl font-black text-white italic text-shadow-lg">15M</span>
-                </div>
-            </div>
-            <p class="mt-8 text-xs text-gray-500 italic leading-relaxed">
-                *Statistical edge is realized over a series of trades. Discipline is mandatory.
-            </p>
-        </div>
-
-        <div>
-            <h2 class="text-3xl font-black mb-6 italic uppercase tracking-tighter">Trading is a Numbers Game.</h2>
-            <div class="space-y-6 text-gray-400 leading-relaxed text-sm">
-                <p>
-                    The secret to our <strong>Gold Protocol</strong> isn't predicting the future—it's managing the math. In trading, you will face "noise" and range zones where 5 losses in a row are possible. But you will also hit strong trends where 5 wins in a row are inevitable.
-                </p>
-                <p class="text-white font-bold italic">
-                    The advantage is simple: Every single winning trade covers at least two losses. 
-                </p>
-                <p>
-                    This is why <strong>discipline is the only variable</strong>. To realize the 57% win rate, you must take every signal. Skipping a trade because of a previous loss is how most traders miss the "Big Runner" that covers the drawdown. 
-                </p>
-                <p>
-                    Whether you are trading a <strong>Live account</strong> or a <strong>Prop Firm challenge</strong>, our system is designed to keep the math in your favor, provided you follow the Entry, SL, and Trail SL rules without hesitation.
-                </p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-    <section id="about" class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
-        
-        <div>
-            <h2 class="text-xs font-bold text-yellow-500 uppercase tracking-[0.2em] mb-4">Precision Logic</h2>
-            <h3 class="text-4xl font-black mb-8 italic">Not Just an Indicator. <br>A Professional Protocol.</h3>
-            
-            <div class="space-y-6 text-gray-400 leading-relaxed">
-                <p>Specifically engineered for the <span class="text-white font-bold text-shadow">15-Minute timeframe</span>, our system provides automated Entry, SL, and TP levels directly on your screen. No manual calculation, no guessing.</p>
-                
-                <div class="flex items-start space-x-4 bg-white/5 p-4 rounded-2xl border border-white/5">
-                    <div class="text-yellow-500 mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor font-bold"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-                    </div>
-                    <div>
-                        <h4 class="text-white font-bold">The TRAIL Advantage</h4>
-                        <p class="text-sm text-gray-500">Our dynamic Trail Line increases the 57% base win rate by securing profits and minimizing drawdown automatically.</p>
-                    </div>
-                </div>
-
-                <p>This is a mathematical edge designed for <span class="text-white font-bold italic underline decoration-yellow-500">Funded and Live accounts</span>. Even with zero experience, you can copy, paste, and trade with discipline.</p>
-            </div>
-        </div>
-
-        <div class="glass-card p-10 rounded-3xl relative">
-            <div class="absolute -top-6 -left-6 bg-yellow-500 text-black px-6 py-2 rounded-full font-black text-sm uppercase shadow-2xl">
-                Trader's Trust
-            </div>
-            <h3 class="text-2xl font-bold mb-6">Our Philosophy</h3>
-            <p class="text-gray-400 mb-6 text-sm">
-                We didn't build this to sell it. We built it to trade it. After rigorous internal testing, we are opening the protocol to the public at a price accessible to everyone—one good signal pays for the month.
-            </p>
-            <div class="bg-black/40 p-6 rounded-2xl border border-white/5 mb-8">
-                <h4 class="text-xs font-bold text-gray-500 uppercase mb-4 tracking-widest">Planned Updates</h4>
-                <ul class="space-y-3 text-sm">
-                    <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-yellow-500 rounded-full"></span> <span>BTC/USD 15M (Final Testing)</span></li>
-                    <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-yellow-500 rounded-full"></span> <span>EUR/USD 15M (Development)</span></li>
-                    <li class="flex items-center space-x-2"><span class="w-1.5 h-1.5 bg-gray-600 rounded-full"></span> <span class="text-gray-600 italic">Custom Pair Requests (Member Voting)</span></li>
-                </ul>
-            </div>
-            <p class="text-xs text-yellow-500/70 italic">*We strongly recommend 10-15 days of Demo testing to master the system before going live.</p>
-        </div>
-    </div>
-</section>
-
-    <section id="about" class="max-w-4xl mx-auto px-6 py-24 border-t border-white/5">
-    <div class="text-center mb-12">
-        <div class="inline-block px-4 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-xs font-bold uppercase tracking-widest mb-4">
-            The Trader Behind the Protocol
-        </div>
-        <h2 class="text-4xl font-black mb-8 italic uppercase tracking-tighter">11 Years of Evolution.</h2>
-    </div>
-
-    <div class="glass-card p-10 rounded-3xl border-white/5 relative bg-gradient-to-b from-white/[0.02] to-transparent">
-        <div class="space-y-6 text-gray-400 leading-relaxed italic text-lg">
-            <p>
-                "My journey began in <strong>2015</strong>. Back then, I was trading BTC/USD and various crypto pairs, searching for a legitimate path in an online world filled with empty promises and scams."
-            </p>
-            <p>
-                "After years of trial and error, I realized that trading was the only truly transparent and legal profession where your success depends solely on your skill and discipline. I didn't start this because I had to—I started because I loved the challenge of the markets."
-            </p>
-            <p>
-                "Over time, my focus expanded to <strong>Forex</strong>, specifically <strong>EURUSD and XAUUSD</strong>. The transition to Gold was a revelation. After a decade of analyzing market structures, everything finally started to click. I realized that the best years are not behind me, but right in front of me."
-            </p>
-            <p>
-                "The <strong>XAU Protocol</strong> is the result of that decade-long puzzle finally coming together. It's built on the realization that in trading, having a mathematical advantage over others is the only thing that matters."
-            </p>
-        </div>
-        
-        <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
-    <div class="flex items-center space-x-4 text-left">
-        <div class="w-12 h-12 rounded-full bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500 font-black">
-            XP
-        </div>
-        <div>
-            <div class="text-white font-bold italic uppercase tracking-widest text-xs">Founder</div>
-            <div class="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-bold">XAU Protocol System</div>
-        </div>
-    </div>
-    <a href="#systems" class="bg-yellow-500 text-black px-10 py-4 rounded-full font-black hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] transition uppercase text-xs tracking-widest">
-        Join the Journey
-    </a>
-</div>
-    </div>
-</section>
-
-    <section class="max-w-4xl mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <a href="https://portal.fpmarkets.com/register?fpm-affiliate-utm-source=Referrel&fpm-affiliate-pcode=R001-003RE00000hxJp8YAE" target="_blank" class="glass-card p-6 rounded-2xl border-white/5 flex items-center justify-between group hover:border-yellow-500/30">
-            <div>
-                <div class="text-[10px] uppercase text-gray-500 font-bold tracking-widest mb-1">Recommended Broker</div>
-                <div class="text-xl font-black text-white italic tracking-tighter">Fpmarkets <span class="text-yellow-500 text-xs ml-2 uppercase">TV Integrated</span></div>
-            </div>
-            <div class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </div>
-        </a>
-
-        <a href="https://trader.ftmo.com/?affiliates=gNUHmQwhzxzcRtlncDEg" target="_blank" class="glass-card p-6 rounded-2xl border-white/5 flex items-center justify-between group hover:border-yellow-500/30">
-            <div>
-                <div class="text-[10px] uppercase text-gray-500 font-bold tracking-widest mb-1">Prop Firm Partner</div>
-                <div class="text-xl font-black text-white italic tracking-tighter">FTMO <span class="text-yellow-500 text-xs ml-2 uppercase">Industry Leader</span></div>
-            </div>
-            <div class="text-yellow-500 opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </div>
-        </a>
-    </div>
-</section>
+    </section>
 
     <section id="faq" class="max-w-4xl mx-auto px-6 py-24 border-t border-white/5">
-    <div class="text-center mb-16">
-        <h2 class="text-xs font-bold text-yellow-500 uppercase tracking-[0.3em] mb-4">Support</h2>
-        <h3 class="text-4xl font-black mb-6 italic uppercase tracking-tighter">Common Questions</h3>
-    </div>
-
-    <div class="space-y-6">
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-            <h4 class="text-white font-bold mb-3 italic">Do I need prior trading experience?</h4>
-            <p class="text-gray-500 text-sm leading-relaxed">No. The XAU Protocol is a "Copy & Trade" system. Every signal provides a clear Entry point, Stop Loss, and Take Profit. Your only job is to follow the signals with discipline.</p>
+        <div class="text-center mb-16">
+            <h2 class="text-xs font-bold text-yellow-500 uppercase tracking-[0.3em] mb-4">Support</h2>
+            <h3 class="text-4xl font-black mb-6 italic uppercase tracking-tighter">Common Questions</h3>
         </div>
-
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-    <h4 class="text-white font-bold mb-3 italic">Which brokers are supported?</h4>
-    <p class="text-gray-500 text-sm leading-relaxed">
-        Signals are tracked exclusively on the **TradingView** platform. For execution, we recommend low-spread brokers. Our top pick is <a href="https://portal.fpmarkets.com/register?fpm-affiliate-utm-source=Referrel&fpm-affiliate-pcode=R001-003RE00000hxJp8YAE" target="_blank" class="text-yellow-500 underline hover:text-yellow-400">Fpmarkets</a> due to its direct TradingView integration, allowing you to enter trades instantly when a signal appears.
-    </p>
+        <div class="space-y-6">
+            <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <h4 class="text-white font-bold mb-3 italic">Do I need prior trading experience?</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">No. XAU Protocol is a Copy & Trade system. Every signal provides a clear Entry, SL, and TP. Your only job is discipline.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <h4 class="text-white font-bold mb-3 italic">Which brokers does the system work with?</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">You follow signals on TradingView. For execution, we recommend low-spread brokers like Fpmarkets.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <h4 class="text-white font-bold mb-3 italic">Can I use this for Prop Firm challenges?</h4>
+                <p class="text-gray-500 text-sm leading-relaxed">Yes. The protocol is optimized for drawdown rules at firms like FTMO and MyFundedFX.</p>
+            </div>
+            <div class="glass-card p-6 rounded-2xl border border-white/5">
+                <h4 class="text-white font-bold mb-3 italic">Do you offer refunds?</h4>
+                <p class="text-gray-500 text-sm leading-relaxed text-xs text-red-500/50 italic">Due to the digital nature of the product and immediate access to the algorithm, we do not offer refunds.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-            <h4 class="text-white font-bold mb-3 italic">Can I use the free version of TradingView?</h4>
-            <p class="text-gray-500 text-sm leading-relaxed">Yes. The XAU Protocol indicator works perfectly on the free version of TradingView. You don't need a paid TradingView subscription to run our system.</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-            <h4 class="text-white font-bold mb-3 italic">Can I use this for Prop Firm / Funded challenges?</h4>
-            <p class="text-gray-500 text-sm leading-relaxed">Yes. The protocol was specifically optimized for firms like FTMO. By following the fixed risk management, you maintain the consistency required to pass evaluations.</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-            <h4 class="text-white font-bold mb-3 italic">Should I start on a Live or Demo account?</h4>
-            <p class="text-yellow-500/80 text-sm leading-relaxed font-bold italic">We strongly recommend testing the protocol on a Demo account for at least 10-15 days. This allows you to gain confidence in the math before risking real capital.</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-    <h4 class="text-white font-bold mb-3 italic">Kako dokazujem kripto uplatu?</h4>
-    <p class="text-gray-500 text-sm leading-relaxed">Nakon slanja kriptovaluta, vaš novčanik će generisati <strong>Transaction ID (TXID ili Hash)</strong>. To je jedinstveni kod koji potvrđuje vašu uplatu na blockchain-u. Pošaljite nam taj kod i vaš TradingView username na naš Telegram kako bismo odmah aktivirali vašu licencu.</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-    <h4 class="text-white font-bold mb-3 italic">How do I prove my Crypto payment?</h4>
-    <p class="text-gray-500 text-sm leading-relaxed">
-        After sending the cryptocurrency, your wallet will generate a <strong>Transaction ID (TXID or Hash)</strong>. This is a unique code that confirms your payment on the blockchain. Send us that code along with your TradingView username via Telegram so we can activate your license immediately.
-    </p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl border border-white/5">
-            <h4 class="text-white font-bold mb-3 italic">Do you offer refunds?</h4>
-            <p class="text-gray-500 text-sm leading-relaxed text-xs">Due to the digital nature of the product and immediate access to the algorithm, we do not offer refunds. We suggest starting with a monthly subscription to test the system.</p>
-        </div>
-    </div>
-</section>
-
-   
     <footer class="p-10 text-center border-t border-white/5">
-        <p class="text-xs text-gray-600 uppercase tracking-widest">XAU Protocol © 2026 | Built for disciplined traders.</p>
+        <p class="text-[10px] text-gray-600 uppercase tracking-widest leading-loose">
+            XAU Protocol © 2026 | Built for disciplined traders.<br>
+            Content is not financial advice. Trade responsibly.
+        </p>
     </footer>
 
 </body>

@@ -1,106 +1,657 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VIP Gold Indikator | Privatni TradingView pristup za zlato M15</title>
-    <meta name="description" content="VIP Gold indikator za zlato M15. Privatni TradingView pristup, trailing stop zaštita, strukturirani ulazak i disciplinski proces za live i funded trgovce.">
-    <meta name="keywords" content="VIP Gold indikator, zlato signali, TradingView privatni indikator, XAUUSD M15, zlato TradingView, FTMO zlato strategija">
-    
-    <link rel="canonical" href="https://cryptoworldshorts-jpg.github.io/xau-protocol/hr/">
-    <link rel="icon" type="image/x-icon" href="../XP.png">
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>VIP Gold Indicator | Private TradingView Access for Gold M15</title>
+    <meta name="description" content="VIP Gold Indicator for Gold M15. Private TradingView invite-only access, trailing stop protection, structured execution, and a disciplined trading process for live and funded traders." />
+    <meta name="keywords" content="VIP Gold Indicator, Gold trading signals, TradingView invite-only indicator, XAUUSD M15, Gold TradingView, funded account gold trading" />
+    <link rel="canonical" href="https://cryptoworldshorts-jpg.github.io/xau-protocol/" />
+
+    <meta property="og:title" content="VIP Gold Indicator | Trade Gold with Structure" />
+    <meta property="og:description" content="Private TradingView access for Gold M15 with structured signals, trailing stop protection, and a disciplined execution model." />
+    <meta property="og:url" content="https://cryptoworldshorts-jpg.github.io/xau-protocol/" />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/x-icon" href="VG.png" />
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    
-    <!-- isti CSS stilovi kao EN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        body { background-color: #030406; color: #f3f4f6; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass-card { background: rgba(255,255,255,0.02); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
-        .gold-gradient { background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        :root {
+            --bg: #030406;
+            --surface: rgba(255,255,255,0.03);
+            --surface-strong: rgba(255,255,255,0.05);
+            --border: rgba(255,255,255,0.08);
+            --text: #f3f4f6;
+            --muted: #9ca3af;
+            --gold: #eab308;
+            --gold-soft: rgba(234,179,8,0.18);
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 360px;
+            background: radial-gradient(circle, rgba(234,179,8,0.08) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .glass-card {
+            background: var(--surface);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(234,179,8,0.28);
+            transform: translateY(-4px);
+        }
+
+        .section-divider {
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .label-soft {
+            letter-spacing: 0.12em;
+        }
+
+        .title-soft {
+            letter-spacing: -0.02em;
+        }
+
+        .copy-soft {
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #090909;
+            font-weight: 800;
+            transition: 0.25s ease;
+        }
+
+        .btn-primary:hover {
+            background: #facc15;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 30px rgba(234,179,8,0.25);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            transition: 0.25s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.18);
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+
+        .bullet-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+            width: 0.45rem;
+            height: 0.45rem;
+            border-radius: 999px;
+            background: var(--gold);
+            box-shadow: 0 0 12px rgba(234,179,8,0.35);
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item[open] {
+            border-color: rgba(234,179,8,0.22);
+            background: rgba(255,255,255,0.045);
+        }
+
+        .faq-plus {
+            transition: transform 0.25s ease;
+        }
+
+        .faq-item[open] .faq-plus {
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 768px) {
+            .title-soft { letter-spacing: 0; }
+            .label-soft { letter-spacing: 0.08em; }
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation sa EN linkom -->
-    <nav class="max-w-6xl mx-auto p-4 flex justify-between items-center">
-        <a href="../" class="text-yellow-500 font-black italic uppercase text-sm">🇬🇧 EN</a>
-        <div class="flex items-center space-x-4 text-xs font-bold uppercase">
-            <a href="#sustavi" class="text-white hover:text-yellow-500">Sustavi</a>
-            <a href="#cijene" class="text-white hover:text-yellow-500">Cijene</a>
-            <a href="#pitanja" class="text-white hover:text-yellow-500">Pitanja</a>
+    <div class="hero-glow"></div>
+
+    <nav class="max-w-6xl mx-auto px-4 md:px-6 py-4 md:py-6 flex items-center justify-between relative z-50">
+        <a href="#top" class="group flex items-center gap-3 flex-shrink-0">
+            <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300 group-hover:border-yellow-500/40">
+                <span class="text-xl font-extrabold italic uppercase"><span class="text-white">V</span><span class="text-yellow-500">G</span></span>
+            </div>
+            <div class="hidden md:flex flex-col leading-none">
+                <span class="text-white font-extrabold text-sm">VIP Gold</span>
+                <span class="text-[11px] text-gray-500 uppercase label-soft">Indicator</span>
+            </div>
+        </a>
+
+        <div class="flex items-center gap-3 md:gap-6 text-[11px] md:text-sm font-semibold text-white/80">
+            <a href="#how-to-trade" class="hover:text-yellow-500 transition">How to Trade</a>
+            <a href="#pricing" class="hover:text-yellow-500 transition">Pricing</a>
+            <a href="#faq" class="hover:text-yellow-500 transition">FAQ</a>
+            <a href="./hr/" class="border border-yellow-500/30 text-yellow-500 px-3 py-1.5 rounded-lg hover:bg-yellow-500/10 transition">HR</a>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="max-w-4xl mx-auto text-center py-20 px-6">
-        <h1 class="text-6xl md:text-[85px] font-black italic uppercase tracking-tighter text-white mb-8">
-            Trguj zlatom sa<br><span class="text-yellow-500 gold-gradient">matematičkom prednošću
+    <header id="top" class="max-w-4xl mx-auto text-center px-6 py-16 md:py-24 lg:py-28">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-xs font-semibold uppercase label-soft mb-6">
+            Private TradingView Access
+        </div>
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-yellow-500/20 text-yellow-500 text-xs font-semibold uppercase label-soft mb-6">
+            Limited Offer · 40% Off for 90 Days
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold italic title-soft leading-[1.02] mb-6">
+            Private Gold M15 Signals for<br class="hidden md:block" /> Traders Who Value Discipline.
         </h1>
-        <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
-            Prekini nagađati. Visoko precizan M15 sustav sa automatskim ulascima, SL i TP nivoima.
-            <span class="text-white font-bold block mt-4">Jedan uspješan signal pokriva cijenu pretplate!</span>
+        <p class="text-base md:text-lg copy-soft max-w-2xl mx-auto mb-10">
+            VIP Gold Indicator gives you a structured TradingView execution model with clear signals, trailing stop protection, and a simpler way to trade Gold on both live and funded accounts.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#sustavi" class="bg-yellow-500 text-black px-12 py-5 rounded-full font-black hover:shadow-[0_0_30px_rgba(255,215,0,0.4)] uppercase text-sm">PRISTUP ODMAH</a>
-            <a href="#kako" class="bg-white/5 border border-white/10 px-10 py-5 rounded-full font-bold hover:bg-white/10 uppercase text-xs">Saznaj više</a>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#pricing" class="btn-primary px-8 py-4 rounded-full text-sm md:text-base">Get Access Now</a>
+            <a href="#how-to-trade" class="btn-secondary px-8 py-4 rounded-full text-sm md:text-base font-semibold">See How It Works</a>
         </div>
     </header>
 
-    <!-- Pricing Cards -->
-    <section id="sustavi" class="max-w-6xl mx-auto px-6 py-24">
-        <div class="max-w-3xl mx-auto glass-card p-12 md:p-16 rounded-[3rem] shadow-[0_0_50px_rgba(255,215,0,0.1)]">
-            <div class="absolute top-0 right-0 bg-yellow-500 text-black px-6 py-2 font-black text-xs uppercase rounded-bl-3xl">Aktivan sustav</div>
-            
-            <h2 class="text-5xl md:text-6xl font-black italic uppercase mb-8 text-white">VIP Gold</h2>
-            <p class="text-gray-400 mb-12 text-lg">
-                Precizno kalibriran isključivo za zlato. Poseban filter volatilnosti protiv lažnih proboja + praćenje institucionalnih volumena.
-            </p>
-            
-            <div class="flex items-end gap-6 mb-12 p-8 bg-white/5 rounded-[2rem] border border-white/5">
-                <div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-gray-500 line-through text-lg font-bold">85€</span>
-                        <div class="text-5xl font-black text-white">50€</div>
-                    </div>
-                    <div class="text-[10px] uppercase text-yellow-500 font-black">Mjesečni pristup</div>
+    <section class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 md:gap-10 items-stretch">
+            <div class="glass-card p-8 md:p-14 rounded-[2rem] md:rounded-[2.5rem] relative overflow-hidden shadow-[0_0_50px_rgba(234,179,8,0.06)]">
+                <div class="absolute top-0 right-0 bg-yellow-500 text-black px-5 md:px-7 py-2 text-[10px] md:text-xs font-extrabold uppercase label-soft rounded-bl-3xl">
+                    Invite Only
                 </div>
-                <div class="text-right">
-                    <div class="text-5xl font-black text-yellow-500">500€</div>
-                    <div class="text-[10px] uppercase text-gray-500 font-black">Godišnji pristup</div>
+
+                <div class="text-center sm:text-left">
+                    <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-4">VIP Gold Indicator for Gold M15</p>
+                    <h2 class="text-3xl md:text-5xl font-extrabold italic title-soft mb-6">A Private System Built for Disciplined Traders</h2>
+                    <p class="copy-soft text-base md:text-lg mb-8">
+                        This system was created for traders who want a cleaner way to follow Gold without second-guessing every move. Instead of chasing random entries, you receive structured signals, clear execution zones, and a consistent framework designed for disciplined trading on the 15-minute chart.
+                    </p>
+                    <p class="copy-soft text-base md:text-lg mb-10">
+                        The goal is not to overwhelm you with noise. The goal is to give you a repeatable process that keeps execution simple, risk controlled, and decisions consistent across both live and funded trading environments.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                        <div class="bg-white/5 rounded-[1.5rem] p-6 border border-white/5 text-center sm:text-left">
+                            <div class="flex items-end justify-center sm:justify-start gap-3 mb-2">
+                                <span class="text-lg text-gray-500 line-through font-bold">$85</span>
+                                <span class="text-4xl md:text-5xl font-extrabold text-white">$50</span>
+                            </div>
+                            <div class="text-sm text-gray-400">Monthly Access · 40% Off</div>
+                        </div>
+                        <div class="bg-white/5 rounded-[1.5rem] p-6 border border-white/5 text-center sm:text-left">
+                            <div class="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-2">$500</div>
+                            <div class="text-sm text-gray-400">Yearly Access</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 sm:items-center">
+                        <a href="#pricing" class="btn-primary px-8 py-4 rounded-2xl text-center text-sm md:text-base">Claim Your Access</a>
+                        <p class="text-sm text-gray-500">Invite-only access on TradingView. No source code shared.</p>
+                    </div>
                 </div>
             </div>
-            
-            <a href="#cijene" class="block w-full py-6 bg-yellow-500 text-black font-black rounded-2xl hover:shadow-[0_0_30px_rgba(234,179,8,0.3)] uppercase text-sm text-center">Zatraži pristup</a>
+
+            <div class="grid grid-cols-1 gap-6">
+                <div class="glass-card rounded-[2rem] p-7 md:p-8">
+                    <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">What You Get</p>
+                    <ul class="bullet-list space-y-3 text-sm md:text-base">
+                        <li>Private TradingView indicator access.</li>
+                        <li>Clear Gold M15 trading structure.</li>
+                        <li>Trailing stop protection built into the workflow.</li>
+                        <li>Monthly and yearly access options.</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card rounded-[2rem] p-7 md:p-8">
+                    <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Who It Fits</p>
+                    <ul class="bullet-list space-y-3 text-sm md:text-base">
+                        <li>Traders who value discipline over random entries.</li>
+                        <li>Gold traders focused on the 15-minute chart.</li>
+                        <li>Live account users and funded account traders.</li>
+                        <li>Traders who want a simpler execution process.</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card rounded-[2rem] p-7 md:p-8 bg-yellow-500/[0.04] border-yellow-500/20">
+                    <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Why the Pricing Works</p>
+                    <p class="copy-soft text-sm md:text-base mb-4">
+                        The current monthly offer is set at $50 instead of $85 for the next 90 days. The idea is simple: one strong trade can cover the cost of access, while the system remains affordable enough to be used consistently.
+                    </p>
+                    <a href="#pricing" class="text-yellow-500 font-semibold text-sm hover:text-yellow-400 transition">View pricing details →</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Performance + Proof (isti kao EN, samo slike) -->
-    <section id="performanse" class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5">
-        <!-- Performance chart sekcija sa slikom -->
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-black italic uppercase text-white">Vizualizacija performansi</h2>
+    <section class="section-divider max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div class="text-center mb-12 md:mb-16">
+            <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Why VIP Gold</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold italic title-soft mb-4">Built for Cleaner Execution</h2>
+            <p class="max-w-2xl mx-auto copy-soft">A private system focused on structure, protection, and consistent execution instead of random entries and emotional decisions.</p>
         </div>
-        <div class="relative max-w-5xl mx-auto rounded-[2.5rem] p-3 shadow-2xl glass-card">
-            <img src="../performance-chart.png" alt="Performanse VIP Gold" class="w-full rounded-[2.2rem] block" />
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            <div class="glass-card rounded-3xl p-8">
+                <h3 class="text-xl font-bold mb-4">Clear Trade Structure</h3>
+                <p class="copy-soft">Every setup is presented in a way that keeps decision-making simple. You are not left guessing where the trade starts, where risk is controlled, or how the position should be managed once price begins to move.</p>
+            </div>
+            <div class="glass-card rounded-3xl p-8">
+                <h3 class="text-xl font-bold mb-4">Trailing Stop Protection</h3>
+                <p class="copy-soft">The trailing stop element is one of the most important parts of the system. It helps protect open profit, reduces emotional exits, and gives traders a more structured way to let strong trades develop.</p>
+            </div>
+            <div class="glass-card rounded-3xl p-8">
+                <h3 class="text-xl font-bold mb-4">Built for Consistency</h3>
+                <p class="copy-soft">The objective is not to chase excitement. The objective is to follow a repeatable process that can be used with discipline on both live accounts and funded account environments.</p>
+            </div>
+        </div>
+
+        <div class="glass-card rounded-[2rem] p-8 md:p-10 bg-white/[0.02]">
+            <div class="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-8 md:gap-10 items-start">
+                <div>
+                    <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">The Core Idea</p>
+                    <h3 class="text-2xl md:text-4xl font-extrabold italic title-soft mb-4">Discipline is the Real Edge.</h3>
+                    <p class="copy-soft text-base md:text-lg">
+                        A strong system only works when it is followed correctly. That is why VIP Gold is built around a disciplined process where the trader follows the same execution model, the same risk logic, and the same structured routine every time a valid setup appears.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div class="bg-white/5 border border-white/5 rounded-2xl p-5">
+                        <div class="text-yellow-500 font-bold text-sm mb-2">Less Guesswork</div>
+                        <p class="text-sm copy-soft">A cleaner process reduces hesitation and helps traders stay focused on execution instead of overthinking.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/5 rounded-2xl p-5">
+                        <div class="text-yellow-500 font-bold text-sm mb-2">Better Control</div>
+                        <p class="text-sm copy-soft">Risk remains more controlled when entries, management, and exits are approached with the same structure every time.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/5 rounded-2xl p-5">
+                        <div class="text-yellow-500 font-bold text-sm mb-2">Live and Funded Ready</div>
+                        <p class="text-sm copy-soft">The system fits traders who need a repeatable way to operate under real-money and prop-firm conditions.</p>
+                    </div>
+                    <div class="bg-white/5 border border-white/5 rounded-2xl p-5">
+                        <div class="text-yellow-500 font-bold text-sm mb-2">Long-Term Mindset</div>
+                        <p class="text-sm copy-soft">The focus is on process quality over time, not short bursts of random trades driven by emotion.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Pricing Detailed -->
-    <section id="cijene" class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5">
-        <!-- isti layout kao EN, samo preveden tekst -->
-        <!-- 40% popust monthly $50, yearly $500 -->
+    <section id="how-to-trade" class="section-divider max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div class="text-center mb-12 md:mb-16">
+            <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">How to Trade</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold italic title-soft mb-4">Use the System the Right Way</h2>
+            <p class="max-w-2xl mx-auto copy-soft text-base md:text-lg">
+                VIP Gold is not meant to be used with feelings or random manual decisions. It works best when traded with the same process every time.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-8 md:gap-10 items-start mb-10">
+            <div class="glass-card rounded-[2rem] p-8 md:p-10">
+                <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-4">Trading Routine</p>
+                <ol class="space-y-5 text-gray-300 text-sm md:text-base leading-7">
+                    <li><span class="text-white font-bold">1.</span> Open Gold on the 15-minute timeframe.</li>
+                    <li><span class="text-white font-bold">2.</span> Wait for a valid signal from the indicator on TradingView.</li>
+                    <li><span class="text-white font-bold">3.</span> Use fixed risk per trade, such as 0.5% to 1% depending on account size.</li>
+                    <li><span class="text-white font-bold">4.</span> Do not skip signals based on fear or personal opinion.</li>
+                    <li><span class="text-white font-bold">5.</span> Let the stop loss and trailing logic do their job.</li>
+                    <li><span class="text-white font-bold">6.</span> Stay disciplined and follow the system as a long-term process.</li>
+                </ol>
+            </div>
+
+            <div class="space-y-6">
+                <div class="glass-card rounded-[2rem] p-7 md:p-8">
+                    <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Execution Mindset</p>
+                    <p class="copy-soft text-base md:text-lg">
+                        The strength of the system is not only in the signal itself, but in the discipline behind how each signal is executed. Traders who stay consistent with the same routine usually put themselves in a far better position than traders who keep changing rules based on emotion.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div class="glass-card rounded-2xl p-5">
+                        <div class="text-yellow-500 font-bold text-sm mb-2">Stay on One Chart</div>
+                        <p class="text-sm copy-soft">Keep your focus on Gold M15 so your decisions stay aligned with the system.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-5">
+                        <div class="text-yellow-500 font-bold text-sm mb-2">Keep Risk Fixed</div>
+                        <p class="text-sm copy-soft">Using the same risk model helps keep results more stable over time.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-5">
+                        <div class="text-yellow-500 font-bold text-sm mb-2">Trust the Process</div>
+                        <p class="text-sm copy-soft">Do not let one loss or one win change the way you follow the system.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-5">
+                        <div class="text-yellow-500 font-bold text-sm mb-2">Think Long Term</div>
+                        <p class="text-sm copy-soft">The objective is consistency over many trades, not emotional reactions to one setup.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card rounded-[2rem] p-8 md:p-10 bg-yellow-500/[0.04] border-yellow-500/20">
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 items-center">
+                <div>
+                    <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Simple Rule</p>
+                    <h3 class="text-2xl md:text-4xl font-extrabold italic title-soft mb-3">Discipline turns signals into a real process.</h3>
+                    <p class="copy-soft text-base md:text-lg">
+                        The indicator gives structure, but the trader still needs consistency. That is why VIP Gold works best for people who are ready to follow a fixed method instead of reacting emotionally from trade to trade.
+                    </p>
+                </div>
+                <div>
+                    <a href="#pricing" class="btn-primary px-8 py-4 rounded-2xl text-sm md:text-base inline-block">Get Access</a>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="pitanja" class="max-w-4xl mx-auto px-6 py-24 border-t border-white/5">
-        <!-- prevedena pitanja accordion stil -->
+    <section class="section-divider max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div class="text-center mb-12 md:mb-16">
+            <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Access Flow</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold italic title-soft mb-4">How Access Works</h2>
+            <p class="max-w-2xl mx-auto copy-soft">After payment, you send your TradingView username and transaction proof, and your account is activated manually through invite-only access.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card rounded-3xl p-8 text-center">
+                <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-yellow-500 text-xl font-extrabold">1</div>
+                <h3 class="text-lg font-bold mb-2">Payment</h3>
+                <p class="copy-soft">Complete your payment in crypto.</p>
+            </div>
+            <div class="glass-card rounded-3xl p-8 text-center">
+                <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-yellow-500 text-xl font-extrabold">2</div>
+                <h3 class="text-lg font-bold mb-2">Send Details</h3>
+                <p class="copy-soft">Send your TradingView username and TXID.</p>
+            </div>
+            <div class="glass-card rounded-3xl p-8 text-center">
+                <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-yellow-500 text-black flex items-center justify-center text-xl font-extrabold">3</div>
+                <h3 class="text-lg font-bold mb-2 text-yellow-500">Access</h3>
+                <p class="copy-soft">Receive invite-only access and start using the indicator on your chart.</p>
+            </div>
+        </div>
+
+        <div class="mt-10 flex justify-center">
+            <a href="https://t.me/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" class="btn-secondary px-8 py-4 rounded-2xl font-semibold">Send Payment Proof</a>
+        </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black/50 py-12 border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6 text-center text-xs text-gray-500">
-            © 2026 VIP Gold | Sva prava zadržana | <a href="https://t.me/YOUR_USERNAME" class="text-yellow-500">Telegram podrška</a>
-            <div class="text-[9px] mt-4">Trgovanje nosi rizik. Prošle performanse ne jamče buduće rezultate.</div>
+    <section class="section-divider max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div class="text-center mb-12 md:mb-16">
+            <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Who It Is For</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold italic title-soft mb-4">Designed for Real Traders</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card rounded-3xl p-8">
+                <h3 class="text-xl font-bold mb-4">For Live Accounts</h3>
+                <p class="copy-soft">VIP Gold is suitable for traders who want a more structured execution model on personal live accounts and prefer to trade Gold with a repeatable plan instead of impulsive decisions.</p>
+            </div>
+            <div class="glass-card rounded-3xl p-8">
+                <h3 class="text-xl font-bold mb-4">For Funded Accounts</h3>
+                <p class="copy-soft">The system is also suitable for traders working with prop firm rules where discipline, consistency, and controlled execution matter more than overtrading.</p>
+            </div>
+            <div class="glass-card rounded-3xl p-8">
+                <h3 class="text-xl font-bold mb-4">Recommended Platforms</h3>
+                <p class="copy-soft">We recommend using TradingView for signals and brokers such as FP Markets for live execution, while FTMO remains one of the preferred environments for funded traders.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 max-w-4xl mx-auto">
+            <a href="https://portal.fpmarkets.com/register?fpm-affiliate-utm-source=Referrel&fpm-affiliate-pcode=R001-003RE00000hxJp8YAE" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl flex items-center justify-between gap-4 group">
+                <div>
+                    <div class="text-[11px] uppercase text-gray-500 font-semibold label-soft mb-1">Recommended Broker</div>
+                    <div class="text-xl font-extrabold text-white">FP Markets <span class="text-yellow-500 text-xs ml-2">TV Integrated</span></div>
+                </div>
+                <div class="text-yellow-500 transition group-hover:translate-x-1">→</div>
+            </a>
+            <a href="https://trader.ftmo.com/?affiliates=gNUHmQwhzxzcRtlncDEg" target="_blank" rel="noopener noreferrer" class="glass-card p-6 rounded-2xl flex items-center justify-between gap-4 group">
+                <div>
+                    <div class="text-[11px] uppercase text-gray-500 font-semibold label-soft mb-1">Prop Firm Partner</div>
+                    <div class="text-xl font-extrabold text-white">FTMO <span class="text-yellow-500 text-xs ml-2">Funded Trading</span></div>
+                </div>
+                <div class="text-yellow-500 transition group-hover:translate-x-1">→</div>
+            </a>
+        </div>
+    </section>
+
+    <section id="pricing" class="section-divider max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div class="text-center mb-12 md:mb-16">
+            <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Pricing Plans</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold italic title-soft mb-4">Choose Your Access</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="glass-card rounded-[2rem] p-8 md:p-10 border border-yellow-500/30 bg-yellow-500/[0.03] relative overflow-hidden">
+                <div class="absolute top-5 right-5 bg-yellow-500 text-black text-[10px] font-extrabold px-3 py-1 rounded-full uppercase label-soft">40% Off · 90 Days Only</div>
+                <div class="mb-8 pt-6 md:pt-2">
+                    <h3 class="text-2xl font-extrabold mb-2">Monthly Access</h3>
+                    <p class="copy-soft">A flexible option for traders who want ongoing access to the indicator and updates on a month-to-month basis.</p>
+                </div>
+                <div class="mb-2 flex items-end gap-3"><span class="text-xl text-gray-500 line-through font-bold">$85</span><span class="text-5xl md:text-6xl font-extrabold text-white">$50</span><span class="text-base md:text-lg text-gray-500 font-semibold mb-1">/ month</span></div><p class="text-sm text-yellow-500 mb-6">Limited-time price for the next 90 days.</p>
+                <ul class="bullet-list space-y-3 mb-8 text-sm md:text-base">
+                    <li>Private TradingView access</li>
+                    <li>VIP Gold indicator on your chart</li>
+                    <li>Ongoing updates</li>
+                    <li>Support through Telegram</li>
+                </ul>
+                <a href="https://t.me/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" class="block text-center btn-primary py-4 rounded-2xl text-sm md:text-base">Get Monthly Access</a>
+            </div>
+
+            <div class="glass-card rounded-[2rem] p-8 md:p-10">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-extrabold mb-2">Yearly Access</h3>
+                    <p class="copy-soft">Best for traders who already know they want to use the system consistently and save on the yearly plan.</p>
+                </div>
+                <div class="text-5xl md:text-6xl font-extrabold text-yellow-500 mb-6">$500 <span class="text-base md:text-lg text-gray-500 font-semibold">/ year</span></div>
+                <ul class="bullet-list space-y-3 mb-8 text-sm md:text-base">
+                    <li>Full 12-month access</li>
+                    <li>All indicator updates included</li>
+                    <li>Priority long-term value</li>
+                    <li>Better overall pricing</li>
+                </ul>
+                <a href="https://t.me/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" class="block text-center btn-secondary py-4 rounded-2xl text-sm md:text-base font-extrabold">Get Yearly Access</a>
+            </div>
+        </div>
+
+        <p class="text-center text-gray-500 text-sm mt-8 max-w-3xl mx-auto">Access is provided through invite-only TradingView activation after payment confirmation. No source code is shared. No free trial. No refunds.</p>
+    </section>
+
+    <!-- Performance Visualization -->
+<section id="performance" class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5 relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-yellow-500/5 blur-[120px] rounded-full z-0 pointer-events-none"></div>
+
+    <div class="text-center mb-16 relative z-10">
+        <div class="inline-block px-4 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-[10px] font-bold uppercase tracking-widest mb-4">
+            Gold Execution Protocol
+        </div>
+        <h2 class="text-4xl md:text-5xl font-black mb-6 italic uppercase tracking-tighter leading-tight text-white">
+            Performance <span class="text-yellow-500">Visualization</span>
+        </h2>
+        <p class="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed">
+            Real-time execution logic. Mathematical edge applied to XAU/USD price action.
+        </p>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto rounded-[2.5rem] p-3 shadow-2xl z-10" style="background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05);">
+        <img src="https://i.postimg.cc/Mp2NHB1L/performance-chart.png" alt="Gold Protocol Performance" class="w-full h-auto block" />
+    </div>
+</section>
+
+    <!-- FTMO Verified Results -->
+<section id="proof" class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5 relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-yellow-500/5 blur-[120px] rounded-full z-0 pointer-events-none"></div>
+
+    <div class="text-center mb-16 relative z-10">
+        <div class="inline-block px-4 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-[10px] font-bold uppercase tracking-widest mb-4">
+            Verified Results
+        </div>
+        <h2 class="text-4xl md:text-5xl font-black mb-6 italic uppercase tracking-tighter leading-tight text-white">
+            Prop Firm <span class="text-yellow-500">Verified</span>
+        </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 relative z-10">
+        <div class="bg-white/5 border border-white/10 p-8 rounded-[2rem] text-center shadow-inner">
+            <div class="text-yellow-500 text-3xl font-black mb-2 italic">$5,088</div>
+            <div class="text-gray-500 text-[10px] uppercase tracking-widest font-black">Total Profit</div>
+        </div>
+        <div class="bg-white/5 border border-white/10 p-8 rounded-[2rem] text-center shadow-inner">
+            <div class="text-white text-3xl font-black mb-2 italic">2.42</div>
+            <div class="text-gray-500 text-[10px] uppercase tracking-widest font-black">Avg RRR</div>
+        </div>
+        <div class="bg-white/5 border border-white/10 p-8 rounded-[2rem] text-center shadow-inner">
+            <div class="text-white text-3xl font-black mb-2 italic">2.20</div>
+            <div class="text-gray-500 text-[10px] uppercase tracking-widest font-black">Profit Factor</div>
+        </div>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto rounded-[2.5rem] p-3 shadow-2xl z-10" style="background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05);">
+        <img src="https://i.postimg.cc/MpRf3F5d/ftmo-results.png" alt="FTMO Results" class="w-full h-auto block" />
+    </div>
+</section>
+    
+
+    <section id="faq" class="section-divider max-w-4xl mx-auto px-6 py-16 md:py-24">
+        <div class="text-center mb-12 md:mb-16">
+            <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Support</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold italic title-soft mb-4">Common Questions</h2>
+        </div>
+
+        <div class="space-y-5">
+            <details class="faq-item glass-card rounded-2xl p-6">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="font-bold text-white">What do I receive after payment?</span>
+                    <span class="faq-plus text-yellow-500 text-2xl leading-none">+</span>
+                </summary>
+                <p class="copy-soft mt-4">After payment confirmation, you receive invite-only access to the indicator on your TradingView account once you send your TradingView username and transaction proof.</p>
+            </details>
+
+            <details class="faq-item glass-card rounded-2xl p-6">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="font-bold text-white">Do I get the source code?</span>
+                    <span class="faq-plus text-yellow-500 text-2xl leading-none">+</span>
+                </summary>
+                <p class="copy-soft mt-4">No. This is a private invite-only TradingView product. Access is granted directly to your account, and the source code is not shared.</p>
+            </details>
+
+            <details class="faq-item glass-card rounded-2xl p-6">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="font-bold text-white">Is there a free trial?</span>
+                    <span class="faq-plus text-yellow-500 text-2xl leading-none">+</span>
+                </summary>
+                <p class="copy-soft mt-4">No. Access is available only through the monthly or yearly plan.</p>
+            </details>
+
+            <details class="faq-item glass-card rounded-2xl p-6">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="font-bold text-white">Do you offer refunds?</span>
+                    <span class="faq-plus text-yellow-500 text-2xl leading-none">+</span>
+                </summary>
+                <p class="copy-soft mt-4">No. Because this is a digital invite-only product with private access, all payments are final.</p>
+            </details>
+
+            <details class="faq-item glass-card rounded-2xl p-6">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="font-bold text-white">Can I use it on a funded account?</span>
+                    <span class="faq-plus text-yellow-500 text-2xl leading-none">+</span>
+                </summary>
+                <p class="copy-soft mt-4">Yes. The system is suitable for disciplined traders using funded account models, including firms such as FTMO.</p>
+            </details>
+
+            <details class="faq-item glass-card rounded-2xl p-6">
+                <summary class="flex items-center justify-between gap-4">
+                    <span class="font-bold text-white">How should I use the indicator?</span>
+                    <span class="faq-plus text-yellow-500 text-2xl leading-none">+</span>
+                </summary>
+                <p class="copy-soft mt-4">The best approach is to trade every valid signal with fixed risk and consistent execution, instead of choosing trades emotionally.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="section-divider max-w-4xl mx-auto px-6 py-16 md:py-24 text-center">
+        <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Built Through Experience</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold italic title-soft mb-6">Ready to Trade Gold With More Structure?</h2>
+        <p class="max-w-2xl mx-auto copy-soft text-base md:text-lg mb-4">Get private TradingView access, follow a fixed process, and use VIP Gold as a disciplined execution system for Gold M15.</p>
+        <p class="text-yellow-500 text-sm font-semibold uppercase label-soft mb-8">40% off monthly access for the next 90 days</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="https://t.me/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-4 rounded-full text-sm md:text-base">Get Access Now</a>
+            <a href="https://t.me/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" class="btn-secondary px-8 py-4 rounded-full text-sm md:text-base font-semibold">Contact on Telegram</a>
+        </div>
+    </section>
+
+    <footer class="bg-black/50 border-t border-white/5 py-10 md:py-12 mt-4">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-center md:text-left">
+                    <div class="text-xl font-extrabold text-white mb-2">VIP <span class="text-yellow-500">Gold</span></div>
+                    <p class="text-[11px] text-gray-600 uppercase label-soft">© 2026 All Rights Reserved</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-[11px] font-semibold">
+                    <a href="privacy.html" class="text-gray-500 hover:text-yellow-500 transition">Privacy Policy</a>
+                    <a href="terms.html" class="text-gray-500 hover:text-yellow-500 transition">Terms of Service</a>
+                    <a href="https://t.me/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" class="text-yellow-500 hover:text-yellow-400 transition">Contact Support</a>
+                </div>
+
+                <div class="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-full border border-white/5">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="text-[10px] text-gray-400 font-semibold uppercase">System Operational</span>
+                </div>
+            </div>
+
+            <div class="mt-10 pt-8 border-t border-white/5">
+                <p class="text-[11px] text-gray-700 leading-relaxed text-center max-w-4xl mx-auto">
+                    Risk warning: Trading financial instruments involves significant risk and can result in the loss of your capital. VIP Gold Indicator is a technical analysis tool and does not guarantee profits. Past performance is not indicative of future results.
+                </p>
+            </div>
         </div>
     </footer>
 </body>

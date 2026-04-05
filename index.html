@@ -816,22 +816,37 @@
   </div>
 </div>
 
+    <div id="paymentModal" class="modal">
+  </div>
+
+<script>
     function copyWallet(id) {
-  var copyText = document.getElementById(id).innerText;
-  navigator.clipboard.writeText(copyText).then(function() {
-    alert("Address copied: " + copyText);
-  }, function(err) {
-    console.error('Could not copy text: ', err);
-  });
-}
+        var copyText = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(copyText).then(function() {
+            alert("Address copied: " + copyText);
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    }
 
-function openModal() { document.getElementById("paymentModal").style.display = "block"; }
-function closeModal() { document.getElementById("paymentModal").style.display = "none"; }
+    function openModal() { 
+        document.getElementById("paymentModal").style.display = "block"; 
+    }
 
-window.onclick = function(event) {
-  let modal = document.getElementById("paymentModal");
-  if (event.target == modal) { modal.style.display = "none"; }
-}
+    function closeModal() { 
+        document.getElementById("paymentModal").style.display = "none"; 
+    }
+
+    window.onclick = function(event) {
+        let modal = document.getElementById("paymentModal");
+        if (event.target == modal) { 
+            modal.style.display = "none"; 
+        }
+    }
+</script>
+
+</body>
+</html>
     
 </body>
 </html>

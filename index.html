@@ -169,6 +169,50 @@
             .title-soft { letter-spacing: 0; }
             .label-soft { letter-spacing: 0.08em; }
         }
+
+        .wallet-container {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap; /* Za mobitele */
+}
+.wallet-card {
+  flex: 1;
+  background: #222;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  min-width: 200px;
+}
+.network-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+.trc { background: #ff4d4d; color: white; } /* Crvena za TRC */
+.bep { background: #f3ba2f; color: black; } /* Žuta za Binance BEP */
+
+.addr-text {
+  font-family: monospace;
+  font-size: 0.85em;
+  word-break: break-all;
+  background: #111;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+  color: #ccc;
+}
+.instructions {
+  text-align: left;
+  font-size: 0.9em;
+  background: rgba(212, 175, 55, 0.1);
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 3px solid #d4af37;
+}
     </style>
 </head>
 <body>
@@ -478,61 +522,55 @@
     </section>
 
     <section id="pricing" class="section-divider max-w-6xl mx-auto px-6 py-16 md:py-24">
-        <div class="text-center mb-12 md:mb-16">
-            <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Pricing Plans</p>
-            <h2 class="text-3xl md:text-5xl font-extrabold italic title-soft mb-4">Choose Your Access</h2>
+    <div class="text-center mb-12 md:mb-16">
+        <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Pricing Plans</p>
+        <h2 class="text-3xl md:text-5xl font-extrabold italic title-soft mb-4">Choose Your Access</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="glass-card rounded-[2rem] p-8 md:p-10 border border-yellow-500/30 bg-yellow-500/[0.03] relative overflow-hidden">
+            <div class="absolute top-5 right-5 bg-yellow-500 text-black text-[10px] font-extrabold px-3 py-1 rounded-full uppercase label-soft">40% Off · 90 Days Only</div>
+            <div class="mb-8 pt-6 md:pt-2">
+                <h3 class="text-2xl font-extrabold mb-2">Monthly Access</h3>
+                <p class="copy-soft">A flexible option for traders who want ongoing access to the indicator and updates on a month-to-month basis.</p>
+            </div>
+            <div class="mb-2 flex items-end gap-3">
+                <span class="text-xl text-gray-500 line-through font-bold">$85</span>
+                <span class="text-5xl md:text-6xl font-extrabold text-white">$50</span>
+                <span class="text-base md:text-lg text-gray-500 font-semibold mb-1">/ month</span>
+            </div>
+            <p class="text-sm text-yellow-500 mb-6">Limited-time price for the next 90 days.</p>
+            <ul class="bullet-list space-y-3 mb-8 text-sm md:text-base">
+                <li>Private TradingView access</li>
+                <li>VIP Gold indicator on your chart</li>
+                <li>Ongoing updates</li>
+                <li>Support through Telegram</li>
+            </ul>
+            <button onclick="openModal()" class="block w-full text-center btn-primary py-4 rounded-2xl text-sm md:text-base font-bold cursor-pointer transition-all hover:scale-105">
+                Get Monthly Access
+            </button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div class="glass-card rounded-[2rem] p-8 md:p-10 border border-yellow-500/30 bg-yellow-500/[0.03] relative overflow-hidden">
-                <div class="absolute top-5 right-5 bg-yellow-500 text-black text-[10px] font-extrabold px-3 py-1 rounded-full uppercase label-soft">40% Off · 90 Days Only</div>
-                <div class="mb-8 pt-6 md:pt-2">
-                    <h3 class="text-2xl font-extrabold mb-2">Monthly Access</h3>
-                    <p class="copy-soft">A flexible option for traders who want ongoing access to the indicator and updates on a month-to-month basis.</p>
-                </div>
-                <div class="mb-2 flex items-end gap-3">
-                    <span class="text-xl text-gray-500 line-through font-bold">$85</span>
-                    <span class="text-5xl md:text-6xl font-extrabold text-white">$50</span>
-                    <span class="text-base md:text-lg text-gray-500 font-semibold mb-1">/ month</span>
-                </div>
-                <p class="text-sm text-yellow-500 mb-6">Limited-time price for the next 90 days.</p>
-                <ul class="bullet-list space-y-3 mb-8 text-sm md:text-base">
-                    <li>Private TradingView access</li>
-                    <li>VIP Gold indicator on your chart</li>
-                    <li>Ongoing updates</li>
-                    <li>Support through Telegram</li>
-                </ul>
-                <a href="https://t.me/VipGoldLive?text=Hello!%20I%20want%20to%20get%20the%20MONTHLY%20Access%20plan%20for%20VIP%20Gold." 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="block text-center btn-primary py-4 rounded-2xl text-sm md:text-base">
-                   Get Monthly Access
-                </a>
+        <div class="glass-card rounded-[2rem] p-8 md:p-10 border border-white/10 relative">
+            <div class="mb-8">
+                <h3 class="text-2xl font-extrabold mb-2">Yearly Access</h3>
+                <p class="copy-soft">Best for traders who already know they want to use the system consistently and save on the yearly plan.</p>
             </div>
-
-            <div class="glass-card rounded-[2rem] p-8 md:p-10">
-                <div class="mb-8">
-                    <h3 class="text-2xl font-extrabold mb-2">Yearly Access</h3>
-                    <p class="copy-soft">Best for traders who already know they want to use the system consistently and save on the yearly plan.</p>
-                </div>
-                <div class="text-5xl md:text-6xl font-extrabold text-yellow-500 mb-6">$500 <span class="text-base md:text-lg text-gray-500 font-semibold">/ year</span></div>
-                <ul class="bullet-list space-y-3 mb-8 text-sm md:text-base">
-                    <li>Full 12-month access</li>
-                    <li>All indicator updates included</li>
-                    <li>Priority long-term value</li>
-                    <li>Better overall pricing</li>
-                </ul>
-                <a href="https://t.me/VipGoldLive?text=Hello!%20I%20want%20to%20get%20the%20YEARLY%20Access%20plan%20for%20VIP%20Gold." 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="block text-center btn-secondary py-4 rounded-2xl text-sm md:text-base font-extrabold">
-                   Get Yearly Access
-                </a>
-            </div>
+            <div class="text-5xl md:text-6xl font-extrabold text-yellow-500 mb-6">$500 <span class="text-base md:text-lg text-gray-500 font-semibold">/ year</span></div>
+            <ul class="bullet-list space-y-3 mb-8 text-sm md:text-base">
+                <li>Full 12-month access</li>
+                <li>All indicator updates included</li>
+                <li>Priority long-term value</li>
+                <li>Better overall pricing</li>
+            </ul>
+            <button onclick="openModal()" class="block w-full text-center btn-secondary py-4 rounded-2xl text-sm md:text-base font-extrabold cursor-pointer transition-all hover:scale-105">
+                Get Yearly Access
+            </button>
         </div>
+    </div>
 
-        <p class="text-center text-gray-500 text-sm mt-8 max-w-3xl mx-auto">Access is provided through invite-only TradingView activation after payment confirmation. No source code is shared. No free trial. No refunds.</p>
-    </section>
+    <p class="text-center text-gray-500 text-sm mt-8 max-w-3xl mx-auto">Access is provided through invite-only TradingView activation after payment confirmation. No source code is shared. No free trial. No refunds.</p>
+</section>
 
         <p class="text-center text-gray-500 text-sm mt-8 max-w-3xl mx-auto">Access is provided through invite-only TradingView activation after payment confirmation. No source code is shared. No free trial. No refunds.</p>
     </section>
@@ -747,5 +785,53 @@
             </div>
         </div>
     </footer>
+
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 style="color: #d4af37;">VIP GOLD Access</h2>
+    <p>Select your preferred network and send <strong>50 USDT</strong>:</p>
+    
+    <div class="wallet-container">
+      <div class="wallet-card">
+        <span class="network-tag trc">USDT (TRC20)</span>
+        <p class="addr-text" id="trcAddr">TVOJA_TRC20_ADRESA_OVDJE</p>
+        <button class="copy-btn" onclick="copyWallet('trcAddr')">Copy TRC20</button>
+      </div>
+
+      <div class="wallet-card">
+        <span class="network-tag bep">USDT (BEP20)</span>
+        <p class="addr-text" id="bepAddr">TVOJA_BEP20_ADRESA_OVDJE</p>
+        <button class="copy-btn" onclick="copyWallet('bepAddr')">Copy BEP20</button>
+      </div>
+    </div>
+
+    <div class="instructions">
+      <p><strong>Step 1:</strong> Send payment to the address above.</p>
+      <p><strong>Step 2:</strong> Copy your <strong>Transaction Hash (ID)</strong>.</p>
+      <p><strong>Step 3:</strong> Send the Hash and your <strong>TradingView Username</strong> to our Telegram.</p>
+    </div>
+
+    <a href="https://t.me/TVOJ_TELEGRAM_LINK" class="btn-confirm">Confirm Payment on Telegram</a>
+  </div>
+</div>
+
+    function copyWallet(id) {
+  var copyText = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(copyText).then(function() {
+    alert("Address copied: " + copyText);
+  }, function(err) {
+    console.error('Could not copy text: ', err);
+  });
+}
+
+function openModal() { document.getElementById("paymentModal").style.display = "block"; }
+function closeModal() { document.getElementById("paymentModal").style.display = "none"; }
+
+window.onclick = function(event) {
+  let modal = document.getElementById("paymentModal");
+  if (event.target == modal) { modal.style.display = "none"; }
+}
+    
 </body>
 </html>

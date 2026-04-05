@@ -213,6 +213,83 @@
   border-radius: 5px;
   border-left: 3px solid #d4af37;
 }
+
+        /* --- FIX ZA MODAL (OVO TI NEDOSTAJE) --- */
+.modal {
+    display: none; /* Sakriveno dok se ne klikne gumb */
+    position: fixed;
+    z-index: 10000; /* Da bude iznad svega na stranici */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Tamna pozadina */
+    backdrop-filter: blur(8px); /* Efekt zamućenja pozadine */
+    overflow-y: auto; /* Omogućava skrolanje ako je mobitel mali */
+}
+
+.modal-content {
+    background-color: #121212;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid var(--gold);
+    width: 90%;
+    max-width: 550px;
+    border-radius: 24px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--gold);
+}
+
+.copy-btn {
+    background: var(--gold);
+    color: black;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.8em;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.copy-btn:hover {
+    background: #facc15;
+}
+
+.btn-confirm {
+    display: block;
+    background: #0088cc; /* Telegram plava */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 25px;
+    text-decoration: none;
+    font-weight: 800;
+    transition: 0.2s;
+}
+
+.btn-confirm:hover {
+    background: #0099e6;
+    transform: translateY(-2px);
+}
     </style>
 </head>
 <body>

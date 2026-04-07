@@ -368,13 +368,13 @@
                     <button onclick="openModal('50 USDT')" class="bg-white/5 rounded-[1.5rem] p-6 border border-white/5 text-center sm:text-left hover:border-yellow-500/50 transition-all group cursor-pointer">
                         <div class="flex items-end justify-center sm:justify-start gap-3 mb-2">
                             <span class="text-lg text-gray-500 line-through font-bold group-hover:text-gray-400">$85</span>
-                            <span class="text-4xl md:text-5xl font-extrabold text-white">$50</span>
+                            <span id="monthly-price" class="text-4xl md:text-5xl font-extrabold text-white">$50</span>
                         </div>
                         <div class="text-sm text-gray-400">Monthly Access · <span class="text-yellow-500">40% Off</span></div>
                     </button>
 
                     <button onclick="openModal('500 USDT')" class="bg-white/5 rounded-[1.5rem] p-6 border border-white/5 text-center sm:text-left hover:border-yellow-500/50 transition-all group cursor-pointer">
-                        <div class="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-2 group-hover:scale-105 transition-transform">$500</div>
+                        <div id="yearly-price" class="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-2 group-hover:scale-105 transition-transform">$500</div>
                         <div class="text-sm text-gray-400">Yearly Access · <span class="text-white">Best Value</span></div>
                     </button>
                 </div>
@@ -676,7 +676,7 @@
             </div>
             <div class="mb-2 flex items-end gap-3">
                 <span class="text-xl text-gray-500 line-through font-bold">$85</span>
-                <span class="text-5xl md:text-6xl font-extrabold text-white">$50</span>
+                <span id="monthly-price-2" class="text-5xl md:text-6xl font-extrabold text-white">$50</span>
                 <span class="text-base md:text-lg text-gray-500 font-semibold mb-1">/ month</span>
             </div>
             <p class="text-sm text-yellow-500 mb-6">Limited-time price for the next 90 days.</p>
@@ -686,7 +686,7 @@
                 <li>Ongoing updates</li>
                 <li>Support through Telegram</li>
             </ul>
-            <button onclick="openModal()" class="block w-full text-center btn-primary py-4 rounded-2xl text-sm md:text-base font-bold cursor-pointer transition-all hover:scale-105">
+            <button onclick="openModal('50 USDT')" class="block w-full text-center btn-primary py-4 rounded-2xl text-sm md:text-base font-bold cursor-pointer transition-all hover:scale-105">
                 Get Monthly Access
             </button>
         </div>
@@ -696,14 +696,14 @@
                 <h3 class="text-2xl font-extrabold mb-2">Yearly Access</h3>
                 <p class="copy-soft">Best for traders who already know they want to use the system consistently and save on the yearly plan.</p>
             </div>
-            <div class="text-5xl md:text-6xl font-extrabold text-yellow-500 mb-6">$500 <span class="text-base md:text-lg text-gray-500 font-semibold">/ year</span></div>
+            <div id="yearly-price-2" class="text-5xl md:text-6xl font-extrabold text-yellow-500 mb-6">$500 <span class="text-base md:text-lg text-gray-500 font-semibold">/ year</span></div>
             <ul class="bullet-list space-y-3 mb-8 text-sm md:text-base">
                 <li>Full 12-month access</li>
                 <li>All indicator updates included</li>
                 <li>Priority long-term value</li>
                 <li>Better overall pricing</li>
             </ul>
-            <button onclick="openModal()" class="block w-full text-center btn-secondary py-4 rounded-2xl text-sm md:text-base font-extrabold cursor-pointer transition-all hover:scale-105">
+            <button onclick="openModal('500 USDT')" class="block w-full text-center btn-secondary py-4 rounded-2xl text-sm md:text-base font-extrabold cursor-pointer transition-all hover:scale-105">
                 Get Yearly Access
             </button>
         </div>
@@ -711,7 +711,7 @@
 
     <p class="text-center text-gray-500 text-sm mt-8 max-w-3xl mx-auto">Access is provided through invite-only TradingView activation after payment confirmation. No source code is shared. No free trial. No refunds.</p>
 </section>
-
+    
         <p class="text-center text-gray-500 text-sm mt-8 max-w-3xl mx-auto">Access is provided through invite-only TradingView activation after payment confirmation. No source code is shared. No free trial. No refunds.</p>
     </section>
 
@@ -988,6 +988,43 @@
         let modal = document.getElementById("paymentModal");
         if (event.target == modal) { modal.style.display = "none"; }
     }
+</script>
+
+    <script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const refCode = urlParams.get('ref');
+
+    if (refCode) {
+        const promo = refCode.toUpperCase();
+        
+        // Funkcija za zamjenu cijene
+        const updatePrice = (id, oldP, newP) => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.innerHTML = `<del style="font-size: 0.6em; color: #9ca3af; margin-right: 8px;">$${oldP}</del>$${newP}`;
+            }
+        };
+
+        // Izvrši promjene na svim mjestima
+        updatePrice('monthly-price', '50', '40');
+        updatePrice('monthly-price-2', '50', '40');
+        updatePrice('yearly-price', '500', '400');
+        updatePrice('yearly-price-2', '500', '400');
+
+        // Automatsko dodavanje koda u Telegram poruku (čak i u modalima)
+        document.addEventListener('click', function(e) {
+            let tgLink = e.target.closest('a[href*="t.me"]');
+            if (tgLink) {
+                let cleanUrl = tgLink.href.split('?')[0];
+                let text = encodeURIComponent("Zdravo, zelim kupiti VIP Gold preko koda: " + promo);
+                tgLink.href = cleanUrl + "?text=" + text;
+            }
+        });
+
+        console.log("Affiliate sistem aktivan za: " + promo);
+    }
+})();
 </script>
 
 </body>

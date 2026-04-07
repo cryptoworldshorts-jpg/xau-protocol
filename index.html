@@ -927,48 +927,53 @@
     </footer>
 
 <div id="paymentModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <h2 style="color: #d4af37;">VIP GOLD Access</h2>
-    <p>Select your preferred network and send <strong id="modalPrice">50 USDT</strong>:</p>
-    
-    <div class="wallet-container">
-      <div class="wallet-card">
-        <span class="network-tag trc">USDT (TRC20)</span>
-        <p class="addr-text" id="trcAddr">TKnGhSaqxkQW5mHyk45AMKXEsXyV9XrxE1</p>
-        <button class="copy-btn" onclick="copyWallet('trcAddr')">Copy TRC20</button>
-      </div>
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 style="color: #d4af37;">VIP GOLD Access</h2>
+        <p>Select your preferred network and send <strong id="modalPrice">50 USDT</strong>:</p>
+        
+        <div class="wallet-container">
+            <div class="wallet-card">
+                <span class="network-tag trc">USDT (TRC20)</span>
+                <p class="addr-text" id="trcAddr">TKnGhSaqxkQW5mHyk45AMKXEsXyV9XrxE1</p>
+                <button class="copy-btn" onclick="copyWallet('trcAddr')">Copy TRC20</button>
+            </div>
 
-      <div class="wallet-card">
-        <span class="network-tag bep">USDT (BEP20)</span>
-        <p class="addr-text" id="bepAddr">0x0a5affa8fa6208b1736edbd7f9d4dd63f4aaa9c5</p>
-        <button class="copy-btn" onclick="copyWallet('bepAddr')">Copy BEP20</button>
-      </div>
+            <div class="wallet-card">
+                <span class="network-tag bep">USDT (BEP20)</span>
+                <p class="addr-text" id="bepAddr">0x0a5affa8fa6208b1736edbd7f9d4dd63f4aaa9c5</p>
+                <button class="copy-btn" onclick="copyWallet('bepAddr')">Copy BEP20</button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <p><strong>Step 1:</strong> Send payment to the address above.</p>
+            <p><strong>Step 2:</strong> Copy your <strong>Transaction Hash (ID)</strong>.</p>
+            <p><strong>Step 3:</strong> Send the Hash and your <strong>TradingView Username</strong> to our Telegram.</p>
+        </div>
+
+        <a href="https://t.me/VipGoldLive" target="_blank" rel="noopener noreferrer" class="btn-confirm">
+            Confirm Payment on Telegram
+        </a>
     </div>
-
-    <div class="instructions">
-      <p><strong>Step 1:</strong> Send payment to the address above.</p>
-      <p><strong>Step 2:</strong> Copy your <strong>Transaction Hash (ID)</strong>.</p>
-      <p><strong>Step 3:</strong> Send the Hash and your <strong>TradingView Username</strong> to our Telegram.</p>
-    </div>
-
-    <a href="https://t.me/VipGoldLive" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   class="btn-confirm">
-   Confirm Payment on Telegram
-</a>
 </div>
 
-    <div id="paymentModal" class="modal">
-  </div>
-
 <script>
-    // Funkcija koja prima iznos (npr. '50 USDT' ili '500 USDT')
+    // --- OSNOVNE FUNKCIJE MODALA ---
     function openModal(iznos) { 
-        // Ubacuje cijenu u prozor
-        document.getElementById("modalPrice").innerText = iznos;
-        // Prikazuje prozor
+        let konacniIznos = iznos;
+        
+        // Provjera da li postoji affiliate kod u URL-u
+        const urlParams = new URLSearchParams(window.location.search);
+        const refCode = urlParams.get('ref');
+
+        if (refCode) {
+            // Ako ima koda, smanjujemo cijenu unutar modala
+            if (iznos.includes('50') && !iznos.includes('500')) konacniIznos = '40 USDT';
+            if (iznos.includes('500')) konacniIznos = '400 USDT';
+        }
+
+        document.getElementById("modalPrice").innerText = konacniIznos;
         document.getElementById("paymentModal").style.display = "block"; 
     }
 
@@ -983,48 +988,43 @@
         });
     }
 
-    // Zatvaranje na klik izvan prozora
     window.onclick = function(event) {
         let modal = document.getElementById("paymentModal");
         if (event.target == modal) { modal.style.display = "none"; }
     }
-</script>
 
-    <script>
-(function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const refCode = urlParams.get('ref');
+    // --- AFFILIATE SISTEM (CIJENE NA SAJTU I TELEGRAM) ---
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const refCode = urlParams.get('ref');
 
-    if (refCode) {
-        const promo = refCode.toUpperCase();
-        
-        // Funkcija za zamjenu cijene
-        const updatePrice = (id, oldP, newP) => {
-            const el = document.getElementById(id);
-            if (el) {
-                el.innerHTML = `<del style="font-size: 0.6em; color: #9ca3af; margin-right: 8px;">$${oldP}</del>$${newP}`;
-            }
-        };
+        if (refCode) {
+            const promo = refCode.toUpperCase();
+            
+            const updatePrice = (id, oldP, newP) => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.innerHTML = `<del style="font-size: 0.6em; color: #9ca3af; margin-right: 8px;">$${oldP}</del>$${newP}`;
+                }
+            };
 
-        // Izvrši promjene na svim mjestima
-        updatePrice('monthly-price', '50', '40');
-        updatePrice('monthly-price-2', '50', '40');
-        updatePrice('yearly-price', '500', '400');
-        updatePrice('yearly-price-2', '500', '400');
+            // Mijenja cijene u karticama na sajtu
+            updatePrice('monthly-price', '50', '40');
+            updatePrice('monthly-price-2', '50', '40');
+            updatePrice('yearly-price', '500', '400');
+            updatePrice('yearly-price-2', '500', '400');
 
-        // Automatsko dodavanje koda u Telegram poruku (čak i u modalima)
-        document.addEventListener('click', function(e) {
-            let tgLink = e.target.closest('a[href*="t.me"]');
-            if (tgLink) {
-                let cleanUrl = tgLink.href.split('?')[0];
-                let text = encodeURIComponent("Zdravo, zelim kupiti VIP Gold preko koda: " + promo);
-                tgLink.href = cleanUrl + "?text=" + text;
-            }
-        });
-
-        console.log("Affiliate sistem aktivan za: " + promo);
-    }
-})();
+            // Dodaje kod u Telegram poruku
+            document.addEventListener('click', function(e) {
+                let tgLink = e.target.closest('a[href*="t.me"]');
+                if (tgLink) {
+                    let cleanUrl = tgLink.href.split('?')[0];
+                    let text = encodeURIComponent("Zdravo, zelim kupiti VIP Gold preko koda: " + promo);
+                    tgLink.href = cleanUrl + "?text=" + text;
+                }
+            });
+        }
+    })();
 </script>
 
 </body>

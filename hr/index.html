@@ -934,14 +934,16 @@
         if (refCode) {
             const promo = refCode.toUpperCase();
 
-            // --- NOVO: Zadržavanje koda kod promjene jezika (EN/HR) ---
-            // Traži sve linkove koji vode na drugu jezičnu verziju
-            const langLinks = document.querySelectorAll('a[href*="/hr/"], a[href="https://vipgoldlive.com/"], a[href="/"]');
+            // --- POPRAVLJENO: Zadržavanje koda kod promjene jezika (EN/HR) ---
+            // Dodali smo 'a[href="../"]' da uhvati tvoj link iz navigacije
+            const langLinks = document.querySelectorAll('a[href*="/hr/"], a[href="../"], a[href="https://vipgoldlive.com/"], a[href="/"]');
+            
             langLinks.forEach(link => {
-                let currentHref = link.href.split('?')[0]; // Očisti link od starih parametara
-                link.href = currentHref + "?ref=" + refCode;
+                let currentHref = link.getAttribute('href').split('?')[0]; 
+                link.setAttribute('href', currentHref + "?ref=" + refCode);
             });
 
+            // --- PRECRTAVANJE CIJENA ---
             const updatePrice = (id, oldP, newP) => {
                 const el = document.getElementById(id);
                 if (el) { el.innerHTML = `<del style="font-size: 0.6em; color: #9ca3af; margin-right: 8px;">$${oldP}</del>$${newP}`; }
@@ -952,6 +954,7 @@
             updatePrice('yearly-price', '500', '400');
             updatePrice('yearly-price-2', '500', '400');
 
+            // --- TELEGRAM PORUKA ---
             document.addEventListener('click', function(e) {
                 let tgLink = e.target.closest('a[href*="t.me"]');
                 if (tgLink) {

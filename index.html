@@ -959,34 +959,21 @@
 </div>
 
 <script>
-    // 1. Definišemo globalne varijable na samom početku
     const urlParams = new URLSearchParams(window.location.search);
     const refCode = urlParams.get('ref');
 
-    // --- PAMETNA FUNKCIJA ZA OTVARANJE MODALA ---
     function openModal(iznos) { 
         let finalniIznos = iznos;
-        
-        // Ako u linku postoji ?ref= nešto, smanjujemo cifru unutar modala
         if (refCode) {
-            if (iznos.includes('50') && !iznos.includes('500')) {
-                finalniIznos = '40 USDT';
-            }
-            if (iznos.includes('500')) {
-                finalniIznos = '400 USDT';
-            }
+            if (iznos.includes('50') && !iznos.includes('500')) finalniIznos = '40 USDT';
+            if (iznos.includes('500')) finalniIznos = '400 USDT';
         }
-
         const modalPriceEl = document.getElementById("modalPrice");
-        if (modalPriceEl) {
-            modalPriceEl.innerText = finalniIznos;
-        }
+        if (modalPriceEl) { modalPriceEl.innerText = finalniIznos; }
         document.getElementById("paymentModal").style.display = "block"; 
     }
 
-    function closeModal() { 
-        document.getElementById("paymentModal").style.display = "none"; 
-    }
+    function closeModal() { document.getElementById("paymentModal").style.display = "none"; }
 
     function copyWallet(id) {
         var copyText = document.getElementById(id).innerText;
@@ -1000,32 +987,31 @@
         if (event.target == modal) { modal.style.display = "none"; }
     }
 
-    // --- AFFILIATE SISTEM ZA PRECRTAVANJE CIJENA I ZADRŽAVANJE KODA ---
+    // --- GLAVNI AFFILIATE SISTEM ---
     window.addEventListener('DOMContentLoaded', (event) => {
         if (refCode) {
             const promo = refCode.toUpperCase();
-            
-            // --- NOVO: Zadržavanje koda kod promjene jezika na HR ---
-            const langLinks = document.querySelectorAll('a[href*="/hr/"], a[href="hr/"]');
-            langLinks.forEach(link => {
-                let currentHref = link.getAttribute('href').split('?')[0]; 
-                link.setAttribute('href', currentHref + "?ref=" + refCode);
+
+            // 1. SILOVITO ZADRŽAVANJE KODA (Na svaki klik)
+            document.addEventListener('mousedown', function(e) {
+                let langLink = e.target.closest('a[href*="/hr/"], a[href="hr/"]');
+                if (langLink) {
+                    let base = langLink.getAttribute('href').split('?')[0];
+                    langLink.setAttribute('href', base + "?ref=" + refCode);
+                }
             });
 
+            // 2. PRECRTAVANJE CIJENA
             const updatePrice = (id, oldP, newP) => {
                 const el = document.getElementById(id);
-                if (el) {
-                    el.innerHTML = `<del style="font-size: 0.6em; color: #9ca3af; margin-right: 8px;">$${oldP}</del>$${newP}`;
-                }
+                if (el) { el.innerHTML = `<del style="font-size: 0.6em; color: #9ca3af; margin-right: 8px;">$${oldP}</del>$${newP}`; }
             };
-
-            // Precrtavanje cijena u karticama
             updatePrice('monthly-price', '50', '40');
             updatePrice('monthly-price-2', '50', '40');
             updatePrice('yearly-price', '500', '400');
             updatePrice('yearly-price-2', '500', '400');
 
-            // Automatsko dodavanje koda u Telegram poruku (NA ENGLESKOM)
+            // 3. TELEGRAM PORUKA (EN)
             document.addEventListener('click', function(e) {
                 let tgLink = e.target.closest('a[href*="t.me"]');
                 if (tgLink) {
@@ -1037,5 +1023,6 @@
         }
     });
 </script>
+    
 </body>
 </html>

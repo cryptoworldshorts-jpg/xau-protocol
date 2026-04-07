@@ -317,13 +317,13 @@
                     <button onclick="openModal('50 USDT')" class="bg-white/5 rounded-[1.5rem] p-6 border border-white/5 text-center sm:text-left hover:border-yellow-500/50 transition-all group cursor-pointer w-full">
                         <div class="flex items-end justify-center sm:justify-start gap-3 mb-2">
                             <span class="text-lg text-gray-500 line-through font-bold group-hover:text-gray-400">$85</span>
-                            <span class="text-4xl md:text-5xl font-extrabold text-white">$50</span>
+                            <span id="monthly-price" class="text-4xl md:text-5xl font-extrabold text-white">$50</span>
                         </div>
                         <div class="text-sm text-gray-400">Mjesečni pristup · <span class="text-yellow-500">40% popusta</span></div>
                     </button>
 
                     <button onclick="openModal('500 USDT')" class="bg-white/5 rounded-[1.5rem] p-6 border border-white/5 text-center sm:text-left hover:border-yellow-500/50 transition-all group cursor-pointer w-full">
-                        <div class="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-2 group-hover:scale-105 transition-transform">$500</div>
+                        <div id="yearly-price" class="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-2 group-hover:scale-105 transition-transform">$500</div>
                         <div class="text-sm text-gray-400">Godišnji pristup · <span class="text-white">Najbolja ušteda</span></div>
                     </button>
                 </div>
@@ -368,7 +368,7 @@
         </div>
     </div>
 </section>
-
+    
     <section class="section-divider max-w-6xl mx-auto px-6 py-16 md:py-24">
         <div class="text-center mb-12 md:mb-16">
             <p class="text-yellow-500 text-xs uppercase label-soft font-semibold mb-3">Zašto VIP Gold</p>
@@ -625,7 +625,7 @@
             </div>
             <div class="mb-2 flex items-end gap-3">
                 <span class="text-xl text-gray-500 line-through font-bold">$85</span>
-                <span class="text-5xl md:text-6xl font-extrabold text-white">$50</span>
+                <span id="monthly-price-2" class="text-5xl md:text-6xl font-extrabold text-white">$50</span>
                 <span class="text-base md:text-lg text-gray-500 font-semibold mb-1">/ mjesečno</span>
             </div>
             <p class="text-sm text-yellow-500 mb-6">Promotivna cijena koja vrijedi sljedećih 90 dana.</p>
@@ -645,7 +645,7 @@
                 <h3 class="text-2xl font-extrabold mb-2">Godišnji pristup</h3>
                 <p class="copy-soft">Najbolje za trejdere koji znaju da žele dosljedno koristiti sustav i ostvariti uštedu uz godišnji plan.</p>
             </div>
-            <div class="text-5xl md:text-6xl font-extrabold text-yellow-500 mb-6">$500 <span class="text-base md:text-lg text-gray-500 font-semibold">/ godišnje</span></div>
+            <div id="yearly-price-2" class="text-5xl md:text-6xl font-extrabold text-yellow-500 mb-6">$500 <span class="text-base md:text-lg text-gray-500 font-semibold">/ godišnje</span></div>
             <ul class="bullet-list space-y-3 mb-8 text-sm md:text-base">
                 <li>Puni pristup 12 mjeseci</li>
                 <li>Uključena sva ažuriranja indikatora</li>
@@ -870,68 +870,90 @@
     </footer>
 
 <div id="paymentModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <h2 style="color: #d4af37;">VIP GOLD Pristup</h2>
-    <p>Odaberite mrežu i pošaljite <strong id="modalPrice">50 USDT</strong>:</p>
-    
-    <div class="wallet-container">
-      <div class="wallet-card">
-        <span class="network-tag trc">USDT (TRC20)</span>
-        <p class="addr-text" id="trcAddr">TKnGhSaqxkQW5mHyk45AMKXEsXyV9XrxE1</p>
-        <button class="copy-btn" onclick="copyWallet('trcAddr')">Kopiraj TRC20</button>
-      </div>
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 style="color: #d4af37;">VIP GOLD Pristup</h2>
+        <p>Odaberite mrežu i pošaljite <strong id="modalPrice">50 USDT</strong>:</p>
+        
+        <div class="wallet-container">
+            <div class="wallet-card">
+                <span class="network-tag trc">USDT (TRC20)</span>
+                <p class="addr-text" id="trcAddr">TKnGhSaqxkQW5mHyk45AMKXEsXyV9XrxE1</p>
+                <button class="copy-btn" onclick="copyWallet('trcAddr')">Kopiraj TRC20</button>
+            </div>
 
-      <div class="wallet-card">
-        <span class="network-tag bep">USDT (BEP20)</span>
-        <p class="addr-text" id="bepAddr">0x0a5affa8fa6208b1736edbd7f9d4dd63f4aaa9c5</p>
-        <button class="copy-btn" onclick="copyWallet('bepAddr')">Kopiraj BEP20</button>
-      </div>
+            <div class="wallet-card">
+                <span class="network-tag bep">USDT (BEP20)</span>
+                <p class="addr-text" id="bepAddr">0x0a5affa8fa6208b1736edbd7f9d4dd63f4aaa9c5</p>
+                <button class="copy-btn" onclick="copyWallet('bepAddr')">Kopiraj BEP20</button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <p><strong>Korak 1:</strong> Pošaljite uplatu na adresu iznad.</p>
+            <p><strong>Korak 2:</strong> Kopirajte svoj <strong>Transaction Hash (ID)</strong>.</p>
+            <p><strong>Korak 3:</strong> Pošaljite Hash i svoj <strong>TradingView Username</strong> na naš Telegram.</p>
+        </div>
+
+        <a href="https://t.me/VipGoldLive" target="_blank" rel="noopener noreferrer" class="btn-confirm">
+            Potvrdi uplatu na Telegramu
+        </a>
     </div>
-
-    <div class="instructions">
-      <p><strong>Korak 1:</strong> Pošaljite uplatu na adresu iznad.</p>
-      <p><strong>Korak 2:</strong> Kopirajte svoj <strong>Transaction Hash (ID)</strong>.</p>
-      <p><strong>Korak 3:</strong> Pošaljite Hash i svoj <strong>TradingView Username</strong> na naš Telegram.</p>
-    </div>
-
-    <a href="https://t.me/VipGoldLive" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       class="btn-confirm">
-       Potvrdi uplatu na Telegramu
-    </a>
-  </div>
 </div>
-    
-    <div id="paymentModal" class="modal">
-  </div>
 
 <script>
-    // Funkcija koja prima iznos (npr. '50 USDT' ili '500 USDT')
+    const urlParams = new URLSearchParams(window.location.search);
+    const refCode = urlParams.get('ref');
+
     function openModal(iznos) { 
-        // Ubacuje cijenu u prozor
-        document.getElementById("modalPrice").innerText = iznos;
-        // Prikazuje prozor
+        let finalniIznos = iznos;
+        if (refCode) {
+            if (iznos.includes('50') && !iznos.includes('500')) finalniIznos = '40 USDT';
+            if (iznos.includes('500')) finalniIznos = '400 USDT';
+        }
+        const modalPriceEl = document.getElementById("modalPrice");
+        if (modalPriceEl) { modalPriceEl.innerText = finalniIznos; }
         document.getElementById("paymentModal").style.display = "block"; 
     }
 
-    function closeModal() { 
-        document.getElementById("paymentModal").style.display = "none"; 
-    }
+    function closeModal() { document.getElementById("paymentModal").style.display = "none"; }
 
     function copyWallet(id) {
         var copyText = document.getElementById(id).innerText;
         navigator.clipboard.writeText(copyText).then(function() {
-            alert("Address copied: " + copyText);
+            alert("Adresa kopirana: " + copyText);
         });
     }
 
-    // Zatvaranje na klik izvan prozora
     window.onclick = function(event) {
         let modal = document.getElementById("paymentModal");
         if (event.target == modal) { modal.style.display = "none"; }
     }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        if (refCode) {
+            const promo = refCode.toUpperCase();
+            const updatePrice = (id, oldP, newP) => {
+                const el = document.getElementById(id);
+                if (el) { el.innerHTML = `<del style="font-size: 0.6em; color: #9ca3af; margin-right: 8px;">$${oldP}</del>$${newP}`; }
+            };
+
+            updatePrice('monthly-price', '50', '40');
+            updatePrice('monthly-price-2', '50', '40');
+            updatePrice('yearly-price', '500', '400');
+            updatePrice('yearly-price-2', '500', '400');
+
+            document.addEventListener('click', function(e) {
+                let tgLink = e.target.closest('a[href*="t.me"]');
+                if (tgLink) {
+                    let baseLink = tgLink.href.split('?')[0];
+                    // PORUKA NA HRVATSKOM
+                    let text = encodeURIComponent("Zdravo, zelim kupiti VIP Gold preko koda: " + promo);
+                    tgLink.href = baseLink + "?text=" + text;
+                }
+            });
+        }
+    });
 </script>
     
 </body>

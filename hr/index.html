@@ -894,7 +894,7 @@
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
         <h2 style="color: #d4af37;">VIP GOLD Pristup</h2>
-        <p>Odaberite mrežu i pošaljite <strong id="modalPrice">50 USDT</strong>:</p>
+        <p>Odaberite mrežu i pošaljite <strong id="modalPrice">50 USDT/USDC</strong>:</p>
         
         <div class="wallet-container">
             <div class="wallet-card">
@@ -903,21 +903,24 @@
                 <button class="copy-btn" onclick="copyWallet('trcAddr')">Kopiraj TRC20</button>
             </div>
 
-            <div class="wallet-card">
-                <span class="network-tag bep">USDT (BEP20)</span>
+            <div class="wallet-card" style="border: 1px solid rgba(234, 179, 8, 0.3);">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="network-tag bep">USDT / USDC (BEP20)</span>
+                </div>
                 <p class="addr-text" id="bepAddr">0x0a5affa8fa6208b1736edbd7f9d4dd63f4aaa9c5</p>
-                <button class="copy-btn" onclick="copyWallet('bepAddr')">Kopiraj BEP20</button>
+                <button class="copy-btn" onclick="copyWallet('bepAddr')">Kopiraj BEP20 Adresu</button>
+                <p style="font-size: 10px; color: #888; mt-2;">*Preporučeno za EU korisnike (Binance USDC)</p>
             </div>
         </div>
 
         <div class="instructions">
-            <p><strong>Korak 1:</strong> Pošaljite uplatu na adresu iznad.</p>
-            <p><strong>Korak 2:</strong> Kopirajte svoj <strong>Transaction Hash (ID)</strong>.</p>
+            <p><strong>Korak 1:</strong> Pošaljite uplatu na gore navedenu adresu.</p>
+            <p><strong>Korak 2:</strong> Kopirajte <strong>Transaction Hash (ID)</strong> transakcije.</p>
             <p><strong>Korak 3:</strong> Pošaljite Hash i svoj <strong>TradingView Username</strong> na naš Telegram.</p>
         </div>
 
         <a href="https://t.me/VipGoldLive" target="_blank" rel="noopener noreferrer" class="btn-confirm">
-            Potvrdi uplatu na Telegramu
+            Potvrdi Uplatu na Telegramu
         </a>
     </div>
 </div>

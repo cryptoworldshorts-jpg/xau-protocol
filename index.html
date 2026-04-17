@@ -947,7 +947,7 @@
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
         <h2 style="color: #d4af37;">VIP GOLD Access</h2>
-        <p>Select your preferred network and send <strong id="modalPrice">50 USDT</strong>:</p>
+        <p>Select your preferred network and send <strong id="modalPrice">50 USDT/USDC</strong>:</p>
         
         <div class="wallet-container">
             <div class="wallet-card">
@@ -956,10 +956,13 @@
                 <button class="copy-btn" onclick="copyWallet('trcAddr')">Copy TRC20</button>
             </div>
 
-            <div class="wallet-card">
-                <span class="network-tag bep">USDT (BEP20)</span>
+            <div class="wallet-card" style="border: 1px solid rgba(234, 179, 8, 0.3);">
+                <div class="flex justify-between items-start mb-2">
+                    <span class="network-tag bep">USDT / USDC (BEP20)</span>
+                </div>
                 <p class="addr-text" id="bepAddr">0x0a5affa8fa6208b1736edbd7f9d4dd63f4aaa9c5</p>
-                <button class="copy-btn" onclick="copyWallet('bepAddr')">Copy BEP20</button>
+                <button class="copy-btn" onclick="copyWallet('bepAddr')">Copy BEP20 Address</button>
+                <p style="font-size: 10px; color: #888; mt-2;">*Recommended for EU users (Binance USDC)</p>
             </div>
         </div>
 
